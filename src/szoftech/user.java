@@ -46,7 +46,7 @@ public class user {
 
     @Override
     public String toString(){        
-        return this.user+" "+this.vezNev+" "+this.kerNev+" "+this.pw;
+        return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev;
         
     }
     

@@ -5,7 +5,15 @@ public class usercontainer {
     private Vector<user> usLst=new Vector<user>();
 
     public usercontainer() {
-        
+        inputOutput be = new inputOutput();
+        List<String> list = be.getFile("users.txt");
+        for (String us : list) {
+            int elsoindex, masoidkindex,harmadikindex;
+            elsoindex=us.indexOf(" ", 0);
+            masoidkindex=us.indexOf(" ",elsoindex);
+            harmadikindex=us.indexOf(" ",masoidkindex);
+            usLst.add(new user(us.substring(0,elsoindex),us.substring(elsoindex,masoidkindex),us.substring(masoidkindex, harmadikindex),us.substring(harmadikindex,us.length())));
+        }
     }
     public void addUser(user us){
         if (!this.checkCredentials(us)) {
@@ -30,7 +38,7 @@ public class usercontainer {
     }
     public void mentes(){
         inputOutput ki = new inputOutput();
-        // még kell
+        ki.writeFile(usLst, "users.txt");
     }
     public int getSize(){
         return usLst.size();
