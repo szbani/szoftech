@@ -19,7 +19,7 @@ public class usercontainer {
         }
     }
     public void addUser(user us){
-        if (!this.checkCredentials(us)) {
+        if (this.checkCredentials(us)) {
             usLst.add(us);    
         }
         
@@ -41,7 +41,7 @@ public class usercontainer {
             }
             
         }
-        System.out.println("A felhasznalonev foglalt");
+        System.out.println("A felhasználonev foglalt");
         return false;
     }
     public void mentes(){
