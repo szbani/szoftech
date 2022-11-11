@@ -10,12 +10,11 @@ public class Szoftech {
     public static void main(String[] args) {
         Szoftech sz = new Szoftech();
         user us = new user();
-        us.getId();
         
         while (!sz.exit) {
             if(sz.user == null){
             sz.loginMenu();
-            String asd = sz.inp.inputFile("user");
+//            List asd = sz.inp.getFile("user");
             }
         }
 //        Vector asd = new Vector<user>();
@@ -24,11 +23,9 @@ public class Szoftech {
     public void loginMenu() {
         System.out.println("");
         System.out.println("menü:");
-        System.out.println("0 - Kilépés");
         System.out.println("1 - Belépés");
         System.out.println("2 - Regisztráció");
-        System.out.println("3 - asd");
-        System.out.println("4 - asd");
+        System.out.println("0 - Kilépés");
         menuEvent();
     }
 
@@ -40,7 +37,7 @@ public class Szoftech {
             //regisztráció
             case 1:
                 break;
-            //
+            //bejelentkezés
             case 2:
                 break;
             case 3:
