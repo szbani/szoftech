@@ -39,11 +39,11 @@ public class Szoftech {
                 break;
             case 1:
                 //bejelentkezés
-                login();
+                loginMenu();
                 break;
             case 2:
                 //regisztráció
-                register();
+                registerUser();
                 break;
             case 3:
                 break;
