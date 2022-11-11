@@ -2,15 +2,20 @@ package szoftech;
 import java.util.*;
 
 public class usercontainer {
-    private Vector<user> usLst;
+    private Vector<user> usLst=new Vector<user>();
 
     public usercontainer() {
-        this.usLst = new Vector<user>();
         
+    }
+    public void addUser(user us){
+        usLst.add(us);
+    }
+    
+    public boolean checkCredentials(user usr){
+        return usLst.contains(usr);
     }
     
     
-    public static void main(String args[]) {
-        
-    }
+    
+    
 }

@@ -3,10 +3,11 @@ package szoftech;
 
 
 public class user {
-    private static long idCount;
+    private static long idCount=1;
     private final long id;
     private String user;
     protected String pw;
+    private int rang;
 
     public user() {
         idCount+=1;
@@ -39,6 +40,16 @@ public class user {
     public String getUser() {
         return user;
     }
+
+    public static void setIdCount(long idCount) {
+        idCount = idCount;
+    }
+
+    public void setRang(int rang) {
+        this.rang = rang;
+    }
+    
+    
     
 
 
