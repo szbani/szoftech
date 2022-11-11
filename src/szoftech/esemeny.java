@@ -1,6 +1,7 @@
 
 package szoftech;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
 
@@ -9,19 +10,25 @@ public class esemeny {
     int id;
     private String név;
     String leírás;
-    Vector<user> resztvevők; // az első a foglaló
     int kezdora, vegora;    // 8-22    
-    Date nap;
+    Calendar nap = Calendar.getInstance();
+    Vector<user> resztvevők; // az első a foglaló
+
     
     // esemenyre jelentkezés user hozz
     
 
-    public esemeny() {
+    public esemeny(int id,String nev,String leiras,int év,int hónap,int nap,int kezdora,int vegora) {
+        this.id=id;
+        this.név=nev;
+        this.leírás=leiras;
+        //calendar
+        this.kezdora=kezdora;
+        this.vegora=vegora;
+        
     }
 
-    public Date getNap() {
-        return nap;
-    }
+    
 
     public int getKezdora() {
         return kezdora;
