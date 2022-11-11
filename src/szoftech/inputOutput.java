@@ -33,14 +33,13 @@ public class inputOutput {
         return 0;
     }
 
-    public String inputFile(String file) {
+    public List getFile(String file) {
+        List list = new ArrayList<String>();
         try {
             Scanner sc = new Scanner(new File(file));
-            String i = "";
             while (sc.hasNextLine()) {
-                i = sc.nextLine();
+                list.add(sc.nextLine());
             }
-            return i;
         } catch (FileNotFoundException e) {
             try {
 
@@ -52,6 +51,6 @@ public class inputOutput {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "";
+        return list;
     }
 }
