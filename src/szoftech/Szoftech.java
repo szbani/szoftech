@@ -16,10 +16,11 @@ public class Szoftech {
         while (!sz.exit) {
             if(sz.user == null){
             sz.loginMenu();
-//            List asd = sz.inp.getFile("user");
+            }else{
+                System.out.println("Bejelentkeztél");
             }
+            
         }
-//        Vector asd = new Vector<user>();
     }
 
     public void loginMenu() {
@@ -54,12 +55,16 @@ public class Szoftech {
         }   
     }
     
-    public void login(){
+    public void loginUser(){
         
     }
     
-    public void register(){
-        
+    public void registerUser(){
+        System.out.println("");
+        System.out.println("Regisztráció");
+        user us = new user(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
+                inp.inputString("Vezetéknév: "), inp.inputString("Keresztnév"));
+        users.addUser(us);
     }
 
 }

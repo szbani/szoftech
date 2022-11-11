@@ -6,8 +6,9 @@ import java.util.*;
 
 public class inputOutput {
     
-    public String inputString() {
+    public String inputString(String kiiras) {
         try {
+            System.out.print(kiiras);
             Scanner sc = new Scanner(System.in);
             String i = sc.nextLine();
             return i;
@@ -19,7 +20,7 @@ public class inputOutput {
 
     public int inputSzam(String kiiras) {
         try {
-            System.out.println(kiiras);
+            System.out.print(kiiras);
             Scanner sc = new Scanner(System.in);
             int i = sc.nextInt();
             return i;
