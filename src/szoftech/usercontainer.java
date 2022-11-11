@@ -32,6 +32,15 @@ public class usercontainer {
         }
         return null;
     }
+    public user getUser(String usrn,String pw){
+        for (user us : usLst) {
+            if (us.getUser().equalsIgnoreCase(usrn)&&us.getPw().equals(pw)) {
+                return us;
+            }
+        }
+        System.out.println("Sikertelen bejelentkezés, rossz felhasználónév/jelszó!");
+        return null;
+    }
     
     
     public boolean checkCredentials(user usr){
