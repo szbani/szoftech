@@ -37,12 +37,13 @@ public class usercontainer {
     public boolean checkCredentials(user usr){
         for (user us : usLst) {            
             if (us.getUser().equalsIgnoreCase(usr.getUser())) {
-                return true;
+                System.out.println("A felhasználónév foglalt");
+                return false;
             }
             
         }
-        System.out.println("A felhasználonev foglalt");
-        return false;
+        
+        return true ;
     }
     public void mentes(){
         inputOutput ki = new inputOutput();
