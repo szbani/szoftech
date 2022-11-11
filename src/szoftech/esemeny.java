@@ -33,7 +33,13 @@ public class esemeny {
 
     @Override
     public String toString() {
-        
+        return "\t"+this.id+". "+this.név+" foglaló: "+this.getFoglaló()+"\n\t\t"+this.leírás+"\n\t\t"+this.nap.toString()+", kezdés: "+this.kezdora+"-"+this.vegora+" óráig";
+    }
+    void addUser(user us){
+        resztvevők.add(us);
+    }
+    public user getFoglaló(){
+        return resztvevők.get(0);
     }
     
 }
