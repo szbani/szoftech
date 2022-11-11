@@ -8,14 +8,11 @@ public class user {
     private int rang;
     private String vezNev,kerNev;
 
-    public user() {
-        this.user="Vendeg";
-        this.rang=0;
-    }
+    
     public user(String user,String pw,String veznev,String kerNev) {     
         this.user=user;
         this.pw=pw;
-        this.rang=1;
+        this.rang=0;
     }
     
 
@@ -41,6 +38,11 @@ public class user {
     public void setRang(int rang) {
         this.rang = rang;
     }
+
+    public int getRang() {
+        return rang;
+    }
+    
     
     
     
