@@ -39,7 +39,7 @@ public class Szoftech {
                 break;
             case 1:
                 //bejelentkezés
-                loginMenu();
+                loginUser();
                 break;
             case 2:
                 //regisztráció
@@ -56,6 +56,8 @@ public class Szoftech {
     }
     
     public void loginUser(){
+        System.out.println("");
+        System.out.println("Bejelentkezés");
         
     }
     
@@ -63,8 +65,9 @@ public class Szoftech {
         System.out.println("");
         System.out.println("Regisztráció");
         user us = new user(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
-                inp.inputString("Vezetéknév: "), inp.inputString("Keresztnév"));
+                inp.inputString("Vezetéknév: "), inp.inputString("Keresztnév:"));
         users.addUser(us);
+        users.mentes();
     }
 
 }
