@@ -7,6 +7,9 @@ public class Szoftech {
     public inputOutput inp = new inputOutput();
     public Boolean exit = false;
     public user user = null;
+    public usercontainer users = new usercontainer();
+    
+    
     public static void main(String[] args) {
         Szoftech sz = new Szoftech();
         user us = new user();
@@ -34,11 +37,13 @@ public class Szoftech {
             case 0:
                 exit = true;
                 break;
-            //regisztráció
             case 1:
+                //bejelentkezés
+                login();
                 break;
-            //bejelentkezés
             case 2:
+                //regisztráció
+                register();
                 break;
             case 3:
                 break;

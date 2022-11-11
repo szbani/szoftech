@@ -53,4 +53,14 @@ public class inputOutput {
         }
         return list;
     }
+    public void writeFile(Vector vec,String file){
+        try {
+            PrintWriter pw = new PrintWriter(new File(file));
+            for (Object obj : vec) {
+                pw.println(obj.toString());
+            }
+            pw.close();
+        } catch (Exception e) {
+        }
+    }
 }
