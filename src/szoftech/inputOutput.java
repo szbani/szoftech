@@ -62,7 +62,6 @@ public class inputOutput {
             }
             pw.close();
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }
