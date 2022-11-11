@@ -24,8 +24,13 @@ public class usercontainer {
         }
         
     }
-    public user getUser(int indx){
-        return usLst.elementAt(indx);
+    public user getUser( String usrn){
+        for (user us : usLst) {
+            if (us.getUser().equalsIgnoreCase(usrn)) {
+                return us;
+            }
+        }
+        return null;
     }
     
     

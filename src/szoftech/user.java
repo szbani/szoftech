@@ -23,6 +23,7 @@ public class user {
         this.rang=0;
     }
     
+    
 
     public void setPw(String pw) {
         this.pw = pw;
@@ -32,7 +33,7 @@ public class user {
         this.user = user;
     }
     
-
+    
 
     public String getPw() {
         return pw;
