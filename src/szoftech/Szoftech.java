@@ -17,6 +17,11 @@ public class Szoftech {
             if(sz.user == null){
             sz.loginMenu();
             }else{
+                terem t = new terem("terem", 20, "anyád");
+                esemeny es = new esemeny("esemeny1","leiras1",
+                        2022,10,21,10,11);
+                es.addUser("hallo");
+                t.addEsemeny(es);
                 System.out.println("Bejelentkeztél");
             }
             

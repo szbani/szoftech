@@ -12,7 +12,7 @@ public class esemeny {
     String leírás;
     int kezdora, vegora;    // 8-22    
     GregorianCalendar nap;
-    Vector<String> resztvevők; // az első a foglaló
+    Vector<String> resztvevők = new Vector<String>(); // az első a foglaló
 
     
     // esemenyre jelentkezés user hozz
@@ -50,10 +50,10 @@ public class esemeny {
         return ret;
     }
 
-    void addUser(String us){
+    public void addUser(String us){
         resztvevők.add(us);
     }
-    void addUser(user us){
+    public void addUser(user us){
         resztvevők.add(us.getNev());
     }
     public String getFoglaló(){
