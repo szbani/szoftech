@@ -13,11 +13,20 @@ public class usercontainer {
         }
         
     }
-    
+    public user getUser(int indx){
+        return usLst.elementAt(indx);
+    }
     
     
     public boolean checkCredentials(user usr){
-        return usLst.contains(usr);
+        for (user us : usLst) {
+            if (us.getPw().equals(usr.getPw())){
+                if (us.getUser().equalsIgnoreCase(usr.getUser())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     
