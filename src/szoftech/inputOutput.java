@@ -2,12 +2,9 @@
 package szoftech;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class inputOutput {
-    public inputOutput(){
-    
-    }
     
     public String inputString() {
         try {
@@ -20,13 +17,17 @@ public class inputOutput {
         return "";
     }
 
-    public int inputSzam() {
+    public int inputSzam(String kiiras) {
         try {
-            System.out.println("Parancs száma:");
+            System.out.println(kiiras);
             Scanner sc = new Scanner(System.in);
             int i = sc.nextInt();
             return i;
-        } catch (Exception e) {
+        }catch(InputMismatchException ex){
+            System.out.println("Nem számot adtál meg");
+            return -1;
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
