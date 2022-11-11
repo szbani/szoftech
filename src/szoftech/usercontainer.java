@@ -8,12 +8,18 @@ public class usercontainer {
         
     }
     public void addUser(user us){
-        usLst.add(us);
+        if (!this.checkCredentials(us)) {
+            usLst.add(us);    
+        }
+        
     }
+    
+    
     
     public boolean checkCredentials(user usr){
         return usLst.contains(usr);
     }
+    
     
     
     
