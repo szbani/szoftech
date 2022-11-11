@@ -43,7 +43,12 @@ public class user {
         return rang;
     }
     
-    
+
+    @Override
+    public String toString(){        
+        return this.user+" "+this.vezNev+" "+this.kerNev+" "+this.pw;
+        
+    }
     
     
 

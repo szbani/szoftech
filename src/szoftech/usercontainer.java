@@ -28,8 +28,13 @@ public class usercontainer {
         }
         return false;
     }
-    
-    
+    public void mentes(){
+        inputOutput ki = new inputOutput();
+        // még kell
+    }
+    public int getSize(){
+        return usLst.size();
+    }
     
     
     
