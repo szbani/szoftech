@@ -3,6 +3,7 @@ package szoftech;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Vector;
 
 
@@ -11,7 +12,7 @@ public class esemeny {
     private String név;
     String leírás;
     int kezdora, vegora;    // 8-22    
-    Calendar nap = Calendar.getInstance();
+    GregorianCalendar nap;
     Vector<String> resztvevők; // az első a foglaló
 
     
@@ -23,6 +24,8 @@ public class esemeny {
         this.név=nev;
         this.leírás=leiras;
         //calendar
+        this.nap= new GregorianCalendar(év,hónap,nap);
+        
         this.kezdora=kezdora;
         this.vegora=vegora;
         
