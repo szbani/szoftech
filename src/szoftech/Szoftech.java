@@ -12,7 +12,6 @@ public class Szoftech {
     
     public static void main(String[] args) {
         Szoftech sz = new Szoftech();
-        user us = new user();
         
         while (!sz.exit) {
             if(sz.user == null){
