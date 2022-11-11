@@ -12,7 +12,7 @@ public class esemeny {
     String leírás;
     int kezdora, vegora;    // 8-22    
     Calendar nap = Calendar.getInstance();
-    Vector<user> resztvevők; // az első a foglaló
+    Vector<String> resztvevők; // az első a foglaló
 
     
     // esemenyre jelentkezés user hozz
@@ -43,9 +43,9 @@ public class esemeny {
         return "\t"+this.id+". "+this.név+" foglaló: "+this.getFoglaló()+"\n\t\t"+this.leírás+"\n\t\t"+this.nap.toString()+", kezdés: "+this.kezdora+"-"+this.vegora+" óráig";
     }
     void addUser(user us){
-        resztvevők.add(us);
+        resztvevők.add(us.getNev());
     }
-    public user getFoglaló(){
+    public String getFoglaló(){
         return resztvevők.get(0);
     }
     

@@ -51,7 +51,9 @@ public class user {
     public int getRang() {
         return rang;
     }
-    
+    public String getNev(){
+        return this.vezNev+" "+this.vezNev;
+    }
 
     @Override
     public String toString(){        
