@@ -8,17 +8,9 @@ public class usercontainer {
         inputOutput be = new inputOutput();
         List<String> list = be.getFile("users.txt");
         for (String us : list) {
-            int elsoindex, masoidkindex,harmadikindex,negyedikindx;
-            elsoindex=us.indexOf(" ", 0);
-            masoidkindex=us.indexOf(" ",elsoindex);
-            harmadikindex=us.indexOf(" ",masoidkindex);
-            negyedikindx=us.indexOf(" ",harmadikindex);
+            String[] arr = us.split(" ");
             try {
-                usLst.add(new user(us.substring(0,elsoindex),
-                    us.substring(elsoindex,masoidkindex),
-                    us.substring(masoidkindex, harmadikindex),
-                    us.substring(harmadikindex,negyedikindx),
-                            Integer.parseInt(us.substring(negyedikindx,us.length()))));
+                usLst.add(new user(arr[0],arr[1],arr[2],arr[3],Integer.parseInt(arr[4])));
             } catch (Exception e) {
                 e.printStackTrace();
             }
