@@ -13,16 +13,11 @@ public class usercontainer {
             masoidkindex=us.indexOf(" ",elsoindex);
             harmadikindex=us.indexOf(" ",masoidkindex);
             negyedikindx=us.indexOf(" ",harmadikindex);
-            try {
-                usLst.add(new user(us.substring(0,elsoindex),
+            usLst.add(new user(us.substring(0,elsoindex),
                     us.substring(elsoindex,masoidkindex),
                     us.substring(masoidkindex, harmadikindex),
                     us.substring(harmadikindex,negyedikindx),
                             Integer.parseInt(us.substring(negyedikindx,us.length()))));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            
             
         }
     }
