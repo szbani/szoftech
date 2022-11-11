@@ -8,10 +8,18 @@ public class user {
     private int rang;
     private String vezNev,kerNev;
 
-    
+    public user(String user,String pw,String veznev,String kerNev,int rang) {     
+        this.user=user;
+        this.pw=pw;
+        this.vezNev=veznev;
+        this.kerNev=kerNev;
+        this.rang=rang;
+    }
     public user(String user,String pw,String veznev,String kerNev) {     
         this.user=user;
         this.pw=pw;
+        this.vezNev=veznev;
+        this.kerNev=kerNev;
         this.rang=0;
     }
     
@@ -46,7 +54,7 @@ public class user {
 
     @Override
     public String toString(){        
-        return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev;
+        return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev+" "+this.rang;
         
     }
     
