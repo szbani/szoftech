@@ -24,7 +24,7 @@ public class usercontainer {
         }
         
     }
-    public user getUser( String usrn){
+    public user getUser(String usrn){
         for (user us : usLst) {
             if (us.getUser().equalsIgnoreCase(usrn)) {
                 return us;
@@ -35,13 +35,13 @@ public class usercontainer {
     
     
     public boolean checkCredentials(user usr){
-        for (user us : usLst) {
-            if (us.getPw().equals(usr.getPw())){
-                if (us.getUser().equalsIgnoreCase(usr.getUser())) {
-                    return true;
-                }
+        for (user us : usLst) {            
+            if (us.getUser().equalsIgnoreCase(usr.getUser())) {
+                return true;
             }
+            
         }
+        System.out.println("A felhasznalonev foglalt");
         return false;
     }
     public void mentes(){
