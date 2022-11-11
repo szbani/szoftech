@@ -25,7 +25,7 @@ public class Szoftech {
 
     public void loginMenu() {
         System.out.println("");
-        System.out.println("menü:");
+        System.out.println("Menü:");
         System.out.println("1 - Belépés");
         System.out.println("2 - Regisztráció");
         System.out.println("0 - Kilépés");
@@ -58,6 +58,9 @@ public class Szoftech {
     public void loginUser(){
         System.out.println("");
         System.out.println("Bejelentkezés");
+        
+        user = users.getUser(inp.inputString("Felhasználónév: "),inp.inputString("Jelszó: "));
+        
         
     }
     
