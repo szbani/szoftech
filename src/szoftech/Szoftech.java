@@ -23,6 +23,7 @@ public class Szoftech {
                 es.addUser("hallo");
                 t.addEsemeny(es);
                 System.out.println("Bejelentkeztél");
+                sz.exit = true;
             }
             
         }
@@ -49,10 +50,6 @@ public class Szoftech {
             case 2:
                 //regisztráció
                 registerUser();
-                break;
-            case 3:
-                break;
-            case 4:
                 break;
             default:
                 System.out.println("Rossz számot adtál meg");
