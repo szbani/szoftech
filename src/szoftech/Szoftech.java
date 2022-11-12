@@ -10,6 +10,7 @@ public class Szoftech {
     public usercontainer users = new usercontainer();
     
     
+    
     public static void main(String[] args) {
         Szoftech sz = new Szoftech();
         
@@ -17,12 +18,13 @@ public class Szoftech {
             if(sz.user == null){
             sz.loginMenu();
             }else{
-                terem t = new terem("terem", 20, "anyád");
-                esemeny es = new esemeny("esemeny1","leiras1",
-                        2022,10,21,10,11);
-                es.addUser("hallo");
-                t.addEsemeny(es);
+//                terem t = new terem("terem", 20, "anyád");
+//                esemeny es = new esemeny("esemeny1","leiras1",
+//                        2022,10,21,10,11);
+//                es.addUser("hallo");
+//                t.addEsemeny(es);
                 System.out.println("Bejelentkeztél");
+                sz.mainMenu();
                 sz.exit = true;
             }
             
@@ -35,10 +37,10 @@ public class Szoftech {
         System.out.println("1 - Belépés");
         System.out.println("2 - Regisztráció");
         System.out.println("0 - Kilépés");
-        menuEvent();
+        loginMenuEvents();
     }
-
-    public void menuEvent() {
+    
+    public void loginMenuEvents() {
         switch (inp.inputSzam("Add meg a Parancs számát: ")) {
             case 0:
                 exit = true;
@@ -75,4 +77,29 @@ public class Szoftech {
         users.mentes();
     }
 
+    public void mainMenu(){
+        System.out.println("Fiók: " + user.getNev() + " " + user.getRangString());
+        System.out.println("1 - Események kilistázása");
+        System.out.println("2 - Eseményre jelentkezés");
+        if (user.getRang() == 0) {
+                    System.out.println("3 - Foglalónak jelentkezés");
+        }
+        if (user.getRang() > 0) {
+            System.out.println("3 - Terem foglalás");
+            System.out.println("4 - Saját foglalások megtekintése");
+            System.out.println("5 - Foglalás törlése");
+        }
+        if(user.getRang() > 1){
+            System.out.println(" - Termek kezelése");
+            System.out.println(" - felhasználók kezelése");
+            System.out.println("jogosultság kérők kezelése");
+        }
+        System.out.println("0 - Kijelentkezés");
+        mainMenuEvents();
+    }
+    
+    public void mainMenuEvents(){
+        
+    }
+    
 }

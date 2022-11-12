@@ -33,14 +33,14 @@ public class user {
         this.user = user;
     }
     
-    public String getrangString(){
+    public String getRangString(){
         switch (this.rang) {
             case 0:
-                return "Felasználó";
+                return "Felasznï¿½lï¿½";
             case 1:
-                return "Foglaló";
+                return "Foglalï¿½";
             case 2:
-                return "Operátor";
+                return "Operï¿½tor";
             default:
                 throw new AssertionError();
         }
