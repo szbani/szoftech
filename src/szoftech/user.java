@@ -33,7 +33,18 @@ public class user {
         this.user = user;
     }
     
-    
+    public String getrangString(){
+        switch (this.rang) {
+            case 0:
+                return "Felasználó";
+            case 1:
+                return "Foglaló";
+            case 2:
+                return "Operátor";
+            default:
+                throw new AssertionError();
+        }
+    }
 
     public String getPw() {
         return pw;
