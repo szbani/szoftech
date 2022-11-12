@@ -37,7 +37,16 @@ public class terem {
     }
     
     public void addEsemeny(esemeny es){
-        eslist.add(es);
+        boolean foglalt = false;
+        for (esemeny object : eslist) {
+            if (object.egyidopont(es)) {
+                foglalt=true;
+            }
+        }
+        if (foglalt) {
+            System.out.println("Az id?pont foglalt");
+        }
+        else eslist.add(es);
         mentes();
     }
     public void listEsemeny(){
@@ -77,15 +86,16 @@ public class terem {
         }
         return null;
     }
+    
     @Override
     public String toString(){
-        return "NÃ©v"+nev + ferohely + leiras; 
+        return "Név"+nev + ferohely + leiras; 
     }
 
-    //foglalÃ¡s Ã¼tkÃ¶zÃ©sÃ©nek leellenÅ‘rzÃ©se
+    //foglalás ütközésének leellen?rzése
     
 
 
     
-    //terem kontÃ©ner osztÃ¡ly
+    //terem konténer osztály
 }
