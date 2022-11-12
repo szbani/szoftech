@@ -88,11 +88,19 @@ public class terem {
         }
         return null;
     }
-    public String kiir(){
+    public void addUser(int esid, String nev ){
+        eslist.get(esid).addUser(nev);
+    }
+    public String kiirEsemennyel(){
         String ret="Név"+nev + ferohely + leiras;
         for (esemeny object : eslist) {
             ret+="\t"+object.kiir();
         }
+        return ret;
+    }
+    public String kiirTerem(){
+        String ret="Név"+nev + ferohely + leiras;
+        
         return ret;
     }
     @Override
