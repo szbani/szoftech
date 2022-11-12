@@ -7,6 +7,7 @@ public class user {
     protected String pw;
     private int rang;
     private String vezNev,kerNev;
+    private boolean jelentkezett=false;
 
     public user(String user,String pw,String veznev,String kerNev,int rang) {     
         this.user=user;
@@ -22,8 +23,15 @@ public class user {
         this.kerNev=kerNev;
         this.rang=0;
     }
+    public void jelentkezés(){
+        jelentkezett=true;
+    }
     
-    
+    public void elfogad(){
+        if (jelentkezett) {
+            setRang(1);
+        }
+    }
 
     public void setPw(String pw) {
         this.pw = pw;
@@ -63,7 +71,7 @@ public class user {
         return rang;
     }
     public String getNev(){
-        return this.vezNev+" "+this.vezNev;
+        return this.vezNev+" "+this.kerNev;
     }
 
     @Override

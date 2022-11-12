@@ -24,7 +24,7 @@ public class teremcontainer {
     public void torles(String terem, int id){
         for (terem object : trmList) {
             if (object.getNev().equals(terem)) {
-                object.esemenytorol(id);
+                object.esemenytorol(id-1);
             }
         }
     }
@@ -42,5 +42,16 @@ public class teremcontainer {
         inputOutput ki = new inputOutput();        
         ki.writeFile(trmList, "termek.txt");
     }
-        
+
+    public void listAll(){
+        for (terem object : trmList) {
+            System.out.println(object.kiir());
+        }
+    }
+    public void listOne(String teremnev){
+        for (terem object : trmList) {
+            if(object.nev.equals(teremnev))
+                System.out.println(object.kiir());
+        }
+    }
 }
