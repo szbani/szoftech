@@ -11,7 +11,7 @@ public class esemeny {
     private String név;
     String leírás;
     int kezdora, vegora;    // 8-22    
-    GregorianCalendar nap;
+    Date nap;
     Vector<String> resztvevők = new Vector<String>(); // az első a foglaló
 
     
@@ -22,7 +22,7 @@ public class esemeny {
         this.név=nev;
         this.leírás=leiras;
         //calendar
-        this.nap= new GregorianCalendar(év,hónap,nap);        
+        this.nap= new Date(év,hónap,nap);
         this.kezdora=kezdora;
         this.vegora=vegora;
         
@@ -43,7 +43,7 @@ public class esemeny {
     }
     @Override
     public String toString() {
-        String ret = this.név+","+this.leírás+","+this.kezdora+","+this.vegora+","+this.nap.toString()+",";
+        String ret = this.név+","+this.leírás+","+this.kezdora+","+this.vegora+","+this.nap.getYear()+","+nap.getMonth()+","+nap.getDate();
         for (String string : resztvevők) {
             ret+=","+string;
         }
