@@ -8,28 +8,27 @@ import java.util.Vector;
 
 
 public class esemeny {
-    private String név;
-    String leírás;
+    private String nev;
+    String leiras;
     int kezdora, vegora;    // 8-22    
     Date nap;
-    Vector<String> resztvevők = new Vector<String>(); // az első a foglaló
+    Vector<String> resztvevok = new Vector<String>(); // az els? a foglal�
 
     
-    // esemenyre jelentkezés user hozz
+    // esemenyre jelentkez�s user hozz
     
 
-    public esemeny(String nev,String leiras,int év,int hónap,int nap,int kezdora,int vegora) {
-        this.név=nev;
-        this.leírás=leiras;
+    public esemeny(String nev,String leiras,int ev,int h�nap,int nap,int kezdora,int vegora) {
+        this.nev=nev;
+        this.leiras=leiras;
         //calendar
-        this.nap= new Date(év,hónap,nap);
+        this.nap= new Date(ev,h�nap,nap);
         this.kezdora=kezdora;
         this.vegora=vegora;
         
     }
 
     
-
     public int getKezdora() {
         return kezdora;
     }
@@ -39,25 +38,28 @@ public class esemeny {
     }
 
     public void kiir(){
-        System.out.println(this.név+" foglaló: "+this.getFoglaló()+"\n\t\t"+this.leírás+"\n\t\t"+this.nap.toString()+", kezdés: "+this.kezdora+"-"+this.vegora+" óráig");
+        System.out.println(this.nev+" foglal�: "+this.getFoglalo()+"\n\t\t"+this.leiras+"\n\t\t"+this.nap.toString()+", kezd�s: "+this.kezdora+"-"+this.vegora+" �r�ig");
     }
     @Override
     public String toString() {
-        String ret = this.név+","+this.leírás+","+this.kezdora+","+this.vegora+","+this.nap.getYear()+","+nap.getMonth()+","+nap.getDate();
-        for (String string : resztvevők) {
+        String ret = this.nev+","+this.leiras+","+this.kezdora+","+this.vegora+","+this.nap.getYear()+","+nap.getMonth()+","+nap.getDate();
+        for (String string : resztvevok) {
             ret+=","+string;
         }
         return ret;
     }
-
+    
+    public boolean egyidopont(esemeny masik){
+        return this.nap.equals(masik.nap);
+    }
     public void addUser(String us){
-        resztvevők.add(us);
+        resztvevok.add(us);
     }
     public void addUser(user us){
-        resztvevők.add(us.getNev());
+        resztvevok.add(us.getNev());
     }
-    public String getFoglaló(){
-        return resztvevők.get(0);
+    public String getFoglalo(){
+        return resztvevok.get(0);
     }
     
 }
