@@ -24,6 +24,9 @@ public class usercontainer {
         }
         
     }
+    public void deleteUser(){
+        
+    }
     public user getUser(String usrn){
         for (user us : usLst) {
             if (us.getUser().equalsIgnoreCase(usrn)) {
@@ -32,7 +35,29 @@ public class usercontainer {
         }
         return null;
     }
-    public user getUser(String usrn,String pw){
+    public user getUser(int index){
+        return usLst.get(index);
+    }
+    public void kiirUsers(){
+        int i = 0;
+        for (user us : usLst) {
+            us.kiir(i);
+            i++;
+        }
+    }public void kiirUsers(int rang){
+        int i = 0;
+        for (user us : usLst) {
+            if(us.getRang() == rang)us.kiir(i);
+            i++;
+        }
+    }
+    public void jogElfogad(int index){
+        getUser(index).elfogad();
+    }
+    public void jogElutasit(int index){
+        getUser(index).elutasit();
+    }
+    public user loginUser(String usrn,String pw){
         for (user us : usLst) {
             if (us.getUser().equalsIgnoreCase(usrn)&&us.getPw().equals(pw)) {
                 System.out.println("Bejelentkeztél");

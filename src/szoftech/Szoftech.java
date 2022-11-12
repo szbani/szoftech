@@ -5,9 +5,10 @@ import java.util.*;
 
 public class Szoftech {
 
-    public inputOutput inp = new inputOutput();
-    public Boolean exit = false;
-    public user user = null;
+    inputOutput inp = new inputOutput();
+    Boolean exit = false;
+    user user = null;
+    Boolean vissza = false;
     public usercontainer users = new usercontainer();
 
     public static void main(String[] args) {
@@ -60,7 +61,7 @@ public class Szoftech {
         System.out.println("");
         System.out.println("Bejelentkezés");
 
-        user = users.getUser(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "));
+        user = users.loginUser(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "));
 
     }
 
@@ -96,8 +97,8 @@ public class Szoftech {
     }
 
     public void mainMenuEvents() {
-        int val = inp.inputSzam("Add meg a Parancs számát: ");
-        switch (val) {
+        int parancs = inp.inputSzam("Add meg a Parancs számát: ");
+        switch (parancs) {
             case 0:
                 //kijelentkezes
                 user = null;
@@ -109,10 +110,11 @@ public class Szoftech {
                 //esemenyre jelentkezes
                 break;
         }
-        if(user == null)
-        return ;
+        if (user == null) {
+            return;
+        }
         if (user.getRang() > 0) {
-            switch (val) {
+            switch (parancs) {
                 case 3:
                     //sajat foglalasok kilistazasa
                     break;
@@ -125,23 +127,81 @@ public class Szoftech {
             }
         }
         if (user.getRang() > 1) {
-            switch (val) {
+            
+            switch (parancs) {
                 case 6:
                     //termek kezelese
+                    while (!vissza) {
+                        termekMenu();
+                        termekMenuEvents();
+                        break;
+                    }
                     break;
                 case 7:
                     //felheasznalok kezelese
+                    while(!vissza){
+                        felMenu();
+                        felMenuEvents();
+                    }
                     break;
                 case 8:
                     //foglaloi jelentkezesek kezelese
                     break;
             }
         }
-        switch (val) {
+        switch (parancs) {
+                default:
+                    System.out.println("Rossz számot adtál meg");
+                    break;
+            }
+        }
+    
+
+    public void termekMenu() {
+        System.out.println("");
+        System.out.println("Felhasználók kezelése");
+        System.out.println("1 - Felhasználók kilistázása");
+        System.out.println("2 - Felhasználó törlése");
+        System.out.println("3 - Foglalói jogosultság törlése");
+        System.out.println("0 - Vissza");
+
+    }
+
+    public void termekMenuEvents() {
+        switch (inp.inputSzam("Add meg a Parancs számát: ")) {
+            case 0:
+                vissza = true;
+                break;
             default:
                 System.out.println("Rossz számot adtál meg");
-                break;
         }
     }
+
+    public void felMenu() {
+
+    }
+
+    public void felMenuEvents() {
+        switch (inp.inputSzam("Add meg a Parancs számát: ")) {
+            case 0:
+                vissza = true;
+                break;
+            default:
+                System.out.println("Rossz számot adtál meg");
+        }
+    }
+    public void jogMenu(){
+        
+    }
+    public void jogMenuEvents(){
+        switch (inp.inputSzam("Add meg a Parancs számát: ")) {
+            case 0:
+                vissza = true;
+                break;
+            default:
+                System.out.println("Rossz számot adtál meg");
+        }
+    }
+
 
 }

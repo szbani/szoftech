@@ -32,6 +32,9 @@ public class user {
             setRang(1);
         }
     }
+    public void elutasit(){
+        jelentkezett = false;
+    }
 
     public void setPw(String pw) {
         this.pw = pw;
@@ -61,8 +64,7 @@ public class user {
     public String getUser() {
         return user;
     }
-
-
+    
     public void setRang(int rang) {
         this.rang = rang;
     }
@@ -73,11 +75,12 @@ public class user {
     public String getNev(){
         return this.vezNev+" "+this.kerNev;
     }
-
+    public void kiir(int sorszam){
+        System.out.println(sorszam+" - "+getUser()+ " " +getNev());
+    }
     @Override
     public String toString(){        
         return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev+" "+this.rang;
-        
     }
     
     
