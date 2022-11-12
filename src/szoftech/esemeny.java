@@ -12,17 +12,17 @@ public class esemeny {
     String leiras;
     int kezdora, vegora;    // 8-22    
     Date nap;
-    Vector<String> resztvevok = new Vector<String>(); // az els? a foglaló
+    Vector<String> resztvevok = new Vector<String>(); // az elsÅ‘ a foglalÃ³
 
     
-    // esemenyre jelentkezés user hozz
+    // esemenyre jelentkezÃ©s user hozz
     
 
-    public esemeny(String nev,String leiras,int ev,int hónap,int nap,int kezdora,int vegora) {
+    public esemeny(String nev,String leiras,int ev,int honap,int nap,int kezdora,int vegora) {
         this.nev=nev;
         this.leiras=leiras;
         //calendar
-        this.nap= new Date(ev,hónap,nap);
+        this.nap= new Date(ev,honap,nap);
         this.kezdora=kezdora;
         this.vegora=vegora;
         
@@ -38,7 +38,7 @@ public class esemeny {
     }
 
     public String kiir(){
-        return(this.nev+" foglaló: "+this.getFoglalo()+"\n\t\t"+this.leiras+"\n\t\t"+this.nap.toString()+", kezdés: "+this.kezdora+"-"+this.vegora+" óráig");
+        return(this.nev+" foglalÃ³: "+this.getFoglalo()+"\n\t\t"+this.leiras+"\n\t\t"+this.nap.toString()+", kezdÃ©s: "+this.kezdora+"-"+this.vegora+" Ã³rÃ¡ig");
     }
     @Override
     public String toString() {
