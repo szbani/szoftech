@@ -55,16 +55,17 @@ public class teremcontainer {
             }
         }        
     }
-    public void torlesTerem(String terem){
+    public void torlesTerem(String teremnev){
         for (terem object : trmList) {
             if(object.getNev().equals(object)){
                 trmList.remove(object);                    //lehet nem mukodik Sorry
             }
+            
         }        
     }
-    public void torlesTeremEsemenye(String terem, int id){
+    public void torlesTeremEsemenye(String teremnev, int id){
         for (terem object : trmList) {
-            if (object.getNev().equals(terem)) {
+            if (object.getNev().equals(teremnev)) {
                 object.esemenytorol(id-1);
                 System.out.println("Az esemény Törlése megtörtént!");
                 break;
@@ -94,7 +95,7 @@ public class teremcontainer {
             }
         }
     }
-    public void listAllTeremSima(String teremnev){
+    public void listAllTeremSima(){
         for (terem object : trmList) {
             object.kiirTerem();
         }

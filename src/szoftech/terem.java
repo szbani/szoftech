@@ -105,7 +105,7 @@ public class terem {
     }
     @Override
     public String toString(){
-        return "Név"+nev + ferohely + leiras; 
+        return "Név"+nev+" "+" "+ferohely +" "+ leiras; 
     }
 
     //foglal�s �tk�z�s�nek leellen?rz�se
