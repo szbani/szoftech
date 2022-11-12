@@ -35,6 +35,7 @@ public class usercontainer {
     public user getUser(String usrn,String pw){
         for (user us : usLst) {
             if (us.getUser().equalsIgnoreCase(usrn)&&us.getPw().equals(pw)) {
+                System.out.println("Bejelentkeztél");
                 return us;
             }
         }

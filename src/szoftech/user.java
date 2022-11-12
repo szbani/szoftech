@@ -36,11 +36,11 @@ public class user {
     public String getRangString(){
         switch (this.rang) {
             case 0:
-                return "Felaszn�l�";
+                return "Felasználó";
             case 1:
-                return "Foglal�";
+                return "Foglaló";
             case 2:
-                return "Oper�tor";
+                return "Operátor";
             default:
                 throw new AssertionError();
         }
