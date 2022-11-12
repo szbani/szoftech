@@ -31,7 +31,7 @@ public class teremcontainer {
     public boolean checkCredentials(terem t){
         for (terem us : trmList) {            
             if (us.getNev().equals(t.getNev())) {
-                System.out.println("A Terem már létezik");
+                System.out.println("A Terem mÃ¡r lÃ©tezik");
                 return false;
             }
             

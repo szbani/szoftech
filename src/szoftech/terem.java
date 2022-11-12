@@ -46,7 +46,7 @@ public class terem {
             }
         }
         if (foglalt) {
-            System.out.println("Az id?pont foglalt");
+            System.out.println("Az idÅ‘pont foglalt");
         }
         else eslist.add(es);
         mentes();
@@ -89,7 +89,7 @@ public class terem {
         return null;
     }
     public String kiir(){
-        String ret="Név"+nev + ferohely + leiras;
+        String ret="NÃ©v"+nev + ferohely + leiras;
         for (esemeny object : eslist) {
             ret+="\t"+object.kiir();
         }
@@ -97,13 +97,13 @@ public class terem {
     }
     @Override
     public String toString(){
-        return "Név"+nev + ferohely + leiras; 
+        return "NÃ©v"+nev + ferohely + leiras; 
     }
 
-    //foglalás ütközésének leellen?rzése
+    //foglalï¿½s ï¿½tkï¿½zï¿½sï¿½nek leellen?rzï¿½se
     
 
 
     
-    //terem konténer osztály
+    //terem kontï¿½ner osztï¿½ly
 }
