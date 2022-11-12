@@ -25,7 +25,9 @@ public class terem {
     public String getNev(){
         return nev;
     }
-    
+    public void esemenytorol(int id){
+        eslist.remove(id);
+    }
     public void setNev(String nev){
         this.nev = nev;
     }
@@ -86,7 +88,13 @@ public class terem {
         }
         return null;
     }
-    
+    public String kiir(){
+        String ret="Név"+nev + ferohely + leiras;
+        for (esemeny object : eslist) {
+            ret+="\t"+object.kiir();
+        }
+        return ret;
+    }
     @Override
     public String toString(){
         return "Név"+nev + ferohely + leiras; 

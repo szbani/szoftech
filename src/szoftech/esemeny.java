@@ -37,8 +37,8 @@ public class esemeny {
         return vegora;
     }
 
-    public void kiir(){
-        System.out.println(this.nev+" foglaló: "+this.getFoglalo()+"\n\t\t"+this.leiras+"\n\t\t"+this.nap.toString()+", kezdés: "+this.kezdora+"-"+this.vegora+" óráig");
+    public String kiir(){
+        return(this.nev+" foglaló: "+this.getFoglalo()+"\n\t\t"+this.leiras+"\n\t\t"+this.nap.toString()+", kezdés: "+this.kezdora+"-"+this.vegora+" óráig");
     }
     @Override
     public String toString() {

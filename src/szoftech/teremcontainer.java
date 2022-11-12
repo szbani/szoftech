@@ -12,14 +12,21 @@ public class teremcontainer {
         for (String us : list) {
             String[] arr = us.split(" ");
             try {
-                //trmList.add(new terem(, , ));
+                trmList.add(new terem(arr[0],Integer.parseInt(arr[1]),arr[2]));
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
             
             
+        }        
+    }
+    public void torles(String terem, int id){
+        for (terem object : trmList) {
+            if (object.getNev().equals(terem)) {
+                object.esemenytorol(id);
+            }
         }
-        
     }
     public boolean checkCredentials(terem t){
         for (terem us : trmList) {            
@@ -32,7 +39,7 @@ public class teremcontainer {
         return true;
     }
     public void mentes(){
-        inputOutput ki = new inputOutput();
+        inputOutput ki = new inputOutput();        
         ki.writeFile(trmList, "termek.txt");
     }
         
