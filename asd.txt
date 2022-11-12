@@ -1,0 +1,40 @@
+termek eseményeinek megtekintése(terem kilistázás)
+terem eseményére jelentkezés
+foglalónak jelentkezés (if rang 0)
+
+(rang 1)
+összes terem szabad időpontjainak megtekintése
+terem foglalása(esemény)
+terem foglalás törlése(esemény)
+
+
+(rang 2)
+teremek kezelése
+	termek kilistázása 
+	terem létrehozása
+	terem törlése
+	terem módosítása
+		leírás módosítása
+		férőhely módosítása
+
+
+felhasználók kezelése
+	felhasználók kilistázása
+	felhasználó törlése
+	foglalói jogosultság törlése
+
+Foglalói jogosultság kérők kezelése
+	Foglalói jogosultságot kérők listázása
+	jogosultság elfogadása
+	jogosultság elutasítása
+
+
+
+
+
+
+
+	terem azonositó		
+eid	esemeny 1
+eid	esemeny 2
+	terem azonito 2
