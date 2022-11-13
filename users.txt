@@ -1,3 +1,2 @@
-1 2 3 4 0
 fogl fogl hű jenő 1
 admin admin Szabó Dániel 2

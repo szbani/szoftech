@@ -11,6 +11,7 @@ Kijelentkezés										done
 (rang 1)
 terem foglalás - > termek kilistázása->new esemény		
 terem foglalás törlése -> esemenyek megtekintése	
+Saját foglalások megtekintése
 értékelések megtekintése				
 Kijelentkezés
 

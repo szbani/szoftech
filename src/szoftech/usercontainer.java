@@ -3,7 +3,7 @@ import java.util.*;
 
 public class usercontainer {
     private Vector<user> usLst=new Vector<user>();
-
+    
     public usercontainer() {
         inputOutput be = new inputOutput();
         List<String> list = be.getFile("users.txt");
@@ -25,10 +25,15 @@ public class usercontainer {
         
     }
     public void deleteUser(String username){
+        int i = 0;
         for (user us : usLst) {
             if(us.getUser().equals(username)){
-                usLst.remove(us);
+                usLst.remove(i);
+                mentes();
+                System.out.println("Sikeres törlés");
+                break;
             }
+            i++;
         }
     }
     public user getUser(String usrn){

@@ -109,9 +109,11 @@ public class Szoftech {
                 case 0:
                     //kijelentkezes
                     user = null;
+                    System.out.println("Kijelentkeztél");
                     break;
                 case 1:
                     //események megtekintése
+                    System.out.println("");
                     termek.listAllEsemeny();
                     System.out.println("Szeretnél eseményre jelentkezni?");
                     System.out.println("Y/N");
@@ -121,6 +123,7 @@ public class Szoftech {
                     break;
                 case 2:
                     //Értékelés irása
+                    System.out.println("");
                     termek.addErtekeles(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "), inp.inputString("Értékelés: "));
                     break;
                 default:
@@ -132,9 +135,11 @@ public class Szoftech {
                 case 0:
                     //kijelentkezes
                     user = null;
+                    System.out.println("Kijelentkeztél");
                     break;
                 case 1:
                     //Terem foglalás
+                    System.out.println("");
                     termek.listAllEsemeny();
                     termek.addEsemeny(inp.inputString("Terem neve: "),
                             new esemeny(inp.inputString("Esemény neve: "),inp.inputString("Leírás: "), 
@@ -143,14 +148,17 @@ public class Szoftech {
                     break;
                 case 2:
                     //terem foglalás törlése
+                    System.out.println("");
                     termek.torlesTeremEsemenye(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "));
                     break;
                 case 3:
                     //Saját foglalások megtekintése
+                    System.out.println("");
                     termek.listAllSajatEsemeny(user.getNev());
                     break;
                 case 4:
                     //értékelések megtekintése
+                    System.out.println("");
                     termek.listAllSajatErtekeles(user.getNev());
                     break;
                 default:
@@ -162,17 +170,21 @@ public class Szoftech {
                 case 0:
                     //kijelentkezes
                     user = null;
+                    System.out.println("Kijelentkeztél");
                     break;
                 case 1:
                     //Terem létrehozása
+                    System.out.println("");
                     termek.addTerem(new terem(inp.inputString("Neve: "),inp.inputSzam("Férőhely: ")));
                     break;
                 case 2:
                     //felheasznalok kilistázása
+                    System.out.println("");
                     users.kiirUsers();
                     break;
                 case 3:
                     //felhasználó törlése
+                    System.out.println("");
                     users.deleteUser(inp.inputString("Felhasználónév: "));
                     break;
                 case 4:
