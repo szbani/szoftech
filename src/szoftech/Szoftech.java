@@ -55,6 +55,7 @@ public class Szoftech {
             case 3:
                 //regisztráció
                 //registerUser();
+                registerSpecialUser();
                 break;
             default:
                 System.out.println("Rossz számot adtál meg");
@@ -76,6 +77,15 @@ public class Szoftech {
         user us = new user(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
                 inp.inputString("Vezetéknév: "), inp.inputString("Keresztnév:"));
         users.addUser(us);
+        users.mentes();
+    }
+    
+    public void registerSpecialUser() {
+        System.out.println("");
+        System.out.println("Regisztráció");
+        user us = new user(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
+                inp.inputString("Vezetéknév: "), inp.inputString("Keresztnév:"));
+        users.addSpecialuser(us, inp.inputSzam("Milyen rangot szeretnél?\n1 - Foglaló \t2 - Operátor\n"));
         users.mentes();
     }
 
@@ -189,6 +199,7 @@ public class Szoftech {
                     break;
                 case 4:
                     //Speciális regisztráció elfogadása
+                    
                     break;
                 default:
                     System.out.println("Rossz számot adtál meg");

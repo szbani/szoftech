@@ -9,12 +9,13 @@ public class user {
     private String vezNev,kerNev;
     private boolean jelentkezett=false;
 
-    public user(String user,String pw,String veznev,String kerNev,int rang) {     
+    public user(String user,String pw,String veznev,String kerNev,int rang, Boolean b) {     
         this.user=user;
         this.pw=pw;
         this.vezNev=veznev;
         this.kerNev=kerNev;
         this.rang=rang;
+        this.jelentkezett = b;
     }
     public user(String user,String pw,String veznev,String kerNev) {     
         this.user=user;
@@ -57,8 +58,10 @@ public class user {
     public String getUser() {
         return user;
     }
-    
-    
+
+    public boolean isJelentkezett() {
+        return !jelentkezett;
+    }
 
     public int getRang() {
         return rang;
@@ -76,7 +79,7 @@ public class user {
     }
     @Override
     public String toString(){        
-        return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev+" "+this.rang;
+        return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev+" "+this.rang+ " " +this.jelentkezett;
     }
     
     

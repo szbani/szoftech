@@ -10,13 +10,17 @@ public class usercontainer {
         for (String us : list) {
             String[] arr = us.split(" ");
             try {
-                usLst.add(new user(arr[0],arr[1],arr[2],arr[3],Integer.parseInt(arr[4])));
+                usLst.add(new user(arr[0],arr[1],arr[2],arr[3],Integer.parseInt(arr[4]),Boolean.parseBoolean(arr[5])));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             
             
         }
+    }
+    public void addSpecialuser(user e,int rang){
+        e.specReg(rang);
+        usLst.add(e);
     }
     public void addUser(user us){
         if (this.checkCredentials(us)) {
@@ -69,7 +73,7 @@ public class usercontainer {
     }
     public user loginUser(String usrn,String pw){
         for (user us : usLst) {
-            if (us.getUser().equalsIgnoreCase(usrn)&&us.getPw().equals(pw)) {
+            if (us.getUser().equalsIgnoreCase(usrn)&&us.getPw().equals(pw)&&us.isJelentkezett()) {
                 System.out.println("Bejelentkeztél");
                 return us;
             }

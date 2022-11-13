@@ -1,2 +1,4 @@
-fogl fogl hű jenő 1
-admin admin Szabó Dániel 2
+fogl fogl hű jenő 1 false
+admin admin Szabó Dániel 2 false
+1 2 3 4 0 false
+2 2 2 2 0 false
