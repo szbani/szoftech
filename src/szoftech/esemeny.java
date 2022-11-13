@@ -61,9 +61,13 @@ public class esemeny {
     }
     @Override
     public String toString() {
-        String ret = this.nev+"#"+this.leiras+"#"+this.nap+"#"+this.kezdora+"#"+this.vegora;
+        String ret = this.nev+"#"+this.leiras+"#"+this.nap+"#"+this.kezdora+"#"+this.vegora+"@"+this.ertekelesek;
         for (String string : resztvevok) {
-            ret+=","+string;
+            ret+="#"+string;
+        }
+        
+        for (String string : ertekelesek) {
+            ret+="#"+string;
         }
         return ret;
     }

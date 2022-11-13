@@ -76,8 +76,12 @@ public class terem {
                 for (esemeny obj : eslist) {
                     for (int i = 0; i < users.size(); i++) {
                         obj.addUser(users.get(i));
+                    }                                   
+                }
+                for (esemeny obj : eslist) {
+                    for (int i = 0; i < users.size(); i++) {
+                        obj.addErtekeles(users.get(i));
                     }
-                    
                 }
             } catch (Exception e) {
                 e.printStackTrace();
