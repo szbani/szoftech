@@ -18,11 +18,6 @@ public class Szoftech {
             if (sz.user == null) {
                 sz.loginMenu();
             } else {
-//                terem t = new terem("terem", 20, "anyád");
-//                esemeny es = new esemeny("esemeny1","leiras1",
-//                        2022,10,21,10,11);
-//                es.addUser("hallo");
-//                t.addEsemeny(es);
                 sz.mainMenu();
             }
 
@@ -199,7 +194,15 @@ public class Szoftech {
                     break;
                 case 4:
                     //Speciális regisztráció elfogadása
-                    
+                    System.out.println("");
+                    String id = inp.inputString("Melyik felhasnzálót szeretnéd elfogadni?\n");
+                    System.out.println("");
+                    System.out.println("Elfogadod a jelentkezését?");
+                    if(inp.inputString("Y/N\n").equalsIgnoreCase("y")){
+                        users.jogElfogad(id);
+                    }else{
+                        users.jogElutasit(id);
+                    }
                     break;
                 default:
                     System.out.println("Rossz számot adtál meg");
