@@ -45,9 +45,9 @@ public class esemeny {
             case 3:
                 return "Szerda";
             case 4:
-                return "Szerda";
+                return "Csütörtök";
             case 5:
-                return "Szerda";
+                return "Péntek";
             default:
                 throw new AssertionError();
         }
