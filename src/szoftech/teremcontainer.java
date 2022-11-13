@@ -12,7 +12,7 @@ public class teremcontainer {
         for (String us : list) {
             String[] arr = us.split(" ");
             try {
-                trmList.add(new terem(arr[0],Integer.parseInt(arr[1]),arr[2]));
+                trmList.add(new terem(arr[0],Integer.parseInt(arr[1])));
                 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -28,12 +28,18 @@ public class teremcontainer {
         }
     }
     public void teremEsemenyereJelentkezes(String teremnev, int esId, user us){
+        boolean volt=false;
         for (terem object : trmList) {
             if (object.getNev().equals(teremnev)) {
                 object.addUser(esId, us.getNev());
+                volt=true;
                 mentes();
             }
         }
+        if (volt) {
+            System.out.println("A Jelentkezés megtörtént!");
+        }
+        else System.out.println("Hiba: Nem történt jelentkezés!");
     }
     public void addEsemeny(String teremnev,esemeny es, user us){
         for (terem object : trmList) {
@@ -44,33 +50,7 @@ public class teremcontainer {
             }
         }
     }
-    public void modositLeiras(String terem,String ujleiras){
-        for (terem object : trmList) {
-            if(object.getNev().equals(terem)){
-                object.setLeiras(ujleiras);                    
-                mentes();
-            }
-        }        
-    }
-    public void modositFerohely(String terem,int ujferohely){
-        for (terem object : trmList) {
-            if(object.getNev().equals(terem)){
-                object.setFerohely(ujferohely);
-                mentes();           
-            }
-        }        
-    }
-    public void torlesTerem(String teremnev){
-        int i = 0;
-        for (terem object : trmList) {
-            if(object.getNev().equals(teremnev)){
-                trmList.remove(i);
-                mentes();
-                break;
-            }
-            i++;
-        }        
-    }
+
     public void torlesTeremEsemenye(String teremnev, int id){
         for (terem object : trmList) {
             if (object.getNev().equals(teremnev)) {
@@ -95,14 +75,13 @@ public class teremcontainer {
         inputOutput ki = new inputOutput();        
         ki.writeFile(trmList, "termek.txt");
     }
-    public void listAllSajatEsemeny(String foglalo){
+    public void listAllEsemeny(String foglalo){
+        System.out.println("");
+        System.out.println("Termek:");
         for (terem object : trmList) {
-            for (esemeny object2 : object.eslist) {
-                if(object2.getFoglalo().equals(foglalo)){
-                    System.out.println(object.kiirEsemennyel());
-                }
-            }
+            System.out.println(object.kiirEsemennyel());
         }
+        
     }
     public void listAllTeremSima(){
         System.out.println("");

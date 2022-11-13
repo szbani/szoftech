@@ -6,19 +6,15 @@ import java.util.*;
 public class terem {
     String nev;
     int ferohely;
-    String leiras;
     Vector<esemeny> eslist=new Vector<esemeny>();
     
-    public terem(String nev,int ferohely,String leiras){
+    public terem(String nev,int ferohely){
         this.nev = nev;
         this.ferohely = ferohely;
-        this.leiras = leiras;
         betoltes();
     }
     
-    public String getLeiras(){
-        return leiras;
-    }
+    
     public int getFerohely(){
         return ferohely;
     }
@@ -34,11 +30,12 @@ public class terem {
     public void setFerohely(int ferohely){
         this.ferohely = ferohely;
     }
-    public void setLeiras(String leiras){
-        this.leiras = leiras;
-    }
     
     public void addEsemeny(esemeny es){
+        if (eslist.size()==ferohely) {
+            System.out.println("Betelt A Terem !");
+        }
+        else{
         boolean foglalt = false;
         for (esemeny object : eslist) {
             if (object.egyidopont(es)) {
@@ -50,6 +47,7 @@ public class terem {
         }
         else eslist.add(es);
         mentes();
+        }
     }
     public void listEsemeny(){
         for (esemeny obj : eslist) {
@@ -72,8 +70,9 @@ public class terem {
                 }
                 eslist.add(
                         new esemeny(arr[0],arr[1],
-                                Integer.parseInt(arr[2]),Integer.parseInt(arr[3]),
-                                Integer.parseInt(arr[4]),Integer.parseInt(arr[5]),Integer.parseInt(arr[6])));
+                                Integer.parseInt(arr[2]),
+                                Integer.parseInt(arr[3]),
+                                Integer.parseInt(arr[4])));
                 for (esemeny obj : eslist) {
                     for (int i = 0; i < users.size(); i++) {
                         obj.addUser(users.get(i));
@@ -92,20 +91,20 @@ public class terem {
         eslist.get(esid).addUser(nev);
     }
     public String kiirEsemennyel(){
-        String ret = kiirTerem();
+        String ret = "Terem :"+this.nev+" ";
         for (esemeny object : eslist) {
             ret+="\t"+object.kiir(eslist.indexOf(object)+1);
         }
         return ret;
     }
     public String kiirTerem(){
-        String ret="Név: "+nev+" Férőhely: " + ferohely +" Leírás: " + leiras;
+        String ret="Név: "+nev+" Férőhely: " + ferohely;
         
         return ret;
     }
     @Override
     public String toString(){
-        return nev+" "+ferohely +" "+ leiras; 
+        return nev+" "+ferohely; 
     }
 
     //foglal�s �tk�z�s�nek leellen?rz�se

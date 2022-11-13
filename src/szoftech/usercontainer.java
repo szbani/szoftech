@@ -55,7 +55,7 @@ public class usercontainer {
         getUser(index).elfogad();
     }
     public void jogElutasit(int index){
-        getUser(index).elutasit();
+        usLst.remove(index);
     }
     public user loginUser(String usrn,String pw){
         for (user us : usLst) {

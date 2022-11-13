@@ -23,26 +23,19 @@ public class user {
         this.kerNev=kerNev;
         this.rang=0;
     }
-    public void jelentkezés(){
+    public void specReg(int rang){
         jelentkezett=true;
+        this.rang=rang;
     }
     
     public void elfogad(){
-        if (jelentkezett) {
-            setRang(1);
-        }
+        this.jelentkezett=false;
     }
-    public void elutasit(){
-        jelentkezett = false;
-    }
+    
 
-    public void setPw(String pw) {
-        this.pw = pw;
-    }
+   
 
-    public void setUserName(String user) {
-        this.user = user;
-    }
+    
     
     public String getRangString(){
         switch (this.rang) {
@@ -65,9 +58,7 @@ public class user {
         return user;
     }
     
-    public void setRang(int rang) {
-        this.rang = rang;
-    }
+    
 
     public int getRang() {
         return rang;
@@ -76,7 +67,12 @@ public class user {
         return this.vezNev+" "+this.kerNev;
     }
     public void kiir(int sorszam){
-        System.out.println(sorszam+" - "+getUser()+ " " +getNev());
+        String s=sorszam+" - "+getUser()+ " " +getNev();
+        if (jelentkezett) {
+            s+=" Jelentekezett : "+this.getRangString()+"-ra";
+        }
+        else s+="Rangja: "+this.getRangString();
+        System.out.println();
     }
     @Override
     public String toString(){        
