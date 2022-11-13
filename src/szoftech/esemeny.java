@@ -73,11 +73,11 @@ public class esemeny {
     public String toString() {
         String ret = this.nev+"#"+this.leiras+"#"+this.nap+"#"+this.kezdora+"#"+this.vegora+"#";
         for (String string : resztvevok) {
-            ret+=","+string;
+            ret+=string+",";
         }
         ret+="# ";
         for (String string : ertekelesek) {
-            ret+=","+string;
+            ret+=string+",";
         }
         return ret;
     }

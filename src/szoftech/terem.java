@@ -66,12 +66,12 @@ public class terem {
             try {
                 Vector<String> users=new Vector<String>();
                 String[] arrus = arr[5].split(",");
-                for (int i = 7; i < arrus.length; i++) {
+                for (int i = 0; i < arrus.length; i++) {
                     users.add(arrus[i]);
                 }
                 Vector<String> ertekelesek=new Vector<String>();
                 String[] arrert = arr[6].split(",");
-                for (int i = 7; i < arrert.length; i++) {
+                for (int i = 0; i < arrert.length; i++) {
                     ertekelesek.add(arrert[i]);
                 }
                 eslist.add(
@@ -133,4 +133,5 @@ public class terem {
 
     
     //terem kont�ner oszt�ly
+
 }

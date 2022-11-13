@@ -121,7 +121,6 @@ public class Szoftech {
                     System.out.println("");
                     termek.listAllEsemeny();
                     System.out.println("Szeretnél eseményre jelentkezni?");
-                    System.out.println("Y/N");
                     if(inp.inputString("Y/N\n").equalsIgnoreCase("y")){
                         termek.teremEsemenyereJelentkezes(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "), user);
                     }
