@@ -75,7 +75,7 @@ public class teremcontainer {
         inputOutput ki = new inputOutput();        
         ki.writeFile(trmList, "termek.txt");
     }
-    public void listAllEsemeny(String foglalo){
+    public void listAllEsemeny(){
         System.out.println("");
         System.out.println("Termek:");
         for (terem object : trmList) {

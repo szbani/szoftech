@@ -12,6 +12,7 @@ public class esemeny {
     int kezdora, vegora;    // 8-22    
     String nap;
     Vector<String> resztvevok = new Vector<String>(); // az első a foglaló
+    Vector<String> ertekelesek=new Vector<String>();
 
     
     // esemenyre jelentkezés user hozz
@@ -27,6 +28,9 @@ public class esemeny {
         
     }
 
+    public void addErtekeles(String ert){
+        ertekelesek.add(ert);
+    }
     
     public int getKezdora() {
         return kezdora;
@@ -57,7 +61,7 @@ public class esemeny {
     }
     @Override
     public String toString() {
-        String ret = this.nev+","+this.leiras+","+this.nap+","+this.kezdora+","+this.vegora;
+        String ret = this.nev+"#"+this.leiras+"#"+this.nap+"#"+this.kezdora+"#"+this.vegora;
         for (String string : resztvevok) {
             ret+=","+string;
         }

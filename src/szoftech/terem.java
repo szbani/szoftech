@@ -62,7 +62,7 @@ public class terem {
         inputOutput be = new inputOutput();
         List<String> list = be.getFile(nev+".txt");
         for (String es : list) {
-            String[] arr = es.split(",");
+            String[] arr = es.split("#");
             try {
                 Vector<String> users=new Vector<String>();
                 for (int i = 7; i < arr.length; i++) {
