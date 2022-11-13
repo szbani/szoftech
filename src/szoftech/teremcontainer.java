@@ -81,7 +81,17 @@ public class teremcontainer {
         inputOutput ki = new inputOutput();
         ki.writeFile(trmList, "termek.txt");
     }
-
+    public void listAllSajatErtekeles(String foglalo){
+        System.out.println("");
+        System.out.println("Saját értékelések:");
+        for (terem object : trmList) {
+            for (esemeny object2 : object.eslist) {
+                if (object2.getFoglalo().equals(foglalo)) {
+                    System.out.println(object.kiirErtek());
+                }
+            }
+        }
+    }
     public void listAllSajatEsemeny(String foglalo) {
         System.out.println("");
         System.out.println("Saját események:");

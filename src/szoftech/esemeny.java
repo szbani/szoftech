@@ -71,7 +71,13 @@ public class esemeny {
         }
         return ret;
     }
-    
+    public String kiirErtekeles(){
+        String a= this.nev+" Ertekelesek: ";
+        for (String string : ertekelesek) {
+            a+="\n\t"+string;
+        }
+        return a;
+    }
     public boolean egyidopont(esemeny masik){
         return this.nap.equals(masik.nap);
     }

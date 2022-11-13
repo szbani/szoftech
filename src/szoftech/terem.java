@@ -88,6 +88,8 @@ public class terem {
             }                       
         }
         return null;
+    }public String kiirErtek(){
+        return this.nev+"terem: "+this.kiirErtek();
     }
     public void addErtekels(int esid, String ertekeles ){
         eslist.get(esid).addErtekeles(ertekeles);
