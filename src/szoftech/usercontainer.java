@@ -65,12 +65,24 @@ public class usercontainer {
             i++;
         }
     }
-    public void jogElfogad(int index){
-        getUser(index).elfogad();
+
+    public void jogElfogad(String username){
+        int i=0;
+        for (user object : usLst) {
+            if (object.getUser().equals(username)) {
+                usLst.elementAt(i).elfogad();
+            }
+            i++;
+        }
     }
-    public void jogElutasit(int index){
-        usLst.remove(index);
-    }
+    public void jogElutasit(String username){
+        int i=0;
+        for (user object : usLst) {
+            if (object.getUser().equals(username)) {
+                usLst.elementAt(i).elfogad();
+            }
+            i++;
+        }    }
     public user loginUser(String usrn,String pw){
         for (user us : usLst) {
             if (us.getUser().equalsIgnoreCase(usrn)&&us.getPw().equals(pw)&&us.isJelentkezett()) {
