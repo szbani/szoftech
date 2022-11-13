@@ -89,7 +89,7 @@ public class terem {
         }
         return null;
     }
-    public void addEsemeny(int esid, String ertekeles ){
+    public void addErtekels(int esid, String ertekeles ){
         eslist.get(esid).addErtekeles(ertekeles);
     }
     public void addUser(int esid, String nev ){
