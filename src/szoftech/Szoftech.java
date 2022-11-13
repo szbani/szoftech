@@ -81,20 +81,21 @@ public class Szoftech {
 
     public void mainMenu() {
         System.out.println("");
+        System.out.println("Fiók: " + user.getNev() + " - " + user.getRangString());
         if(user.getRang() == 0){
-            System.out.println("Fiók: " + user.getNev() + " - " + user.getRangString());
         System.out.println("1 - Események Megtekintése");
         System.out.println("2 - Értékelés írása");
         }
         else if (user.getRang() == 1) {
             System.out.println("1 - Terem foglalás");
             System.out.println("2 - Foglalás törlése");
-            System.out.println("3 - Értékelések megtekintése");
+            System.out.println("3 - Saját foglalások megtekintése");
+            System.out.println("4 - Értékelések megtekintése");
         }
         else if (user.getRang() == 2) {
             System.out.println("1 - Terem Hozzáadása");
-            System.out.println("2 - Felhasználó kilistázása");
-            System.out.println("3 - Felhasználó módosítása");
+            System.out.println("2 - Felhasználók kilistázása");
+            System.out.println("3 - Felhasználó törlése");
             System.out.println("4 - Speciális regisztráció elfogadása");
         }
         System.out.println("0 - Kijelentkezés");
@@ -111,11 +112,16 @@ public class Szoftech {
                     break;
                 case 1:
                     //események megtekintése
-
+                    termek.listAllEsemeny();
+                    System.out.println("Szeretnél eseményre jelentkezni?");
+                    System.out.println("Y/N");
+                    if(inp.inputString("Y/N\n").equalsIgnoreCase("y")){
+                        termek.teremEsemenyereJelentkezes(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "), user);
+                    }
                     break;
                 case 2:
                     //Értékelés irása
-    //                termek.teremEsemenyereJelentkezes(teremnev, parancs, user);
+                    termek.addErtekeles(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "), inp.inputString("Értékelés: "));
                     break;
                 default:
                     System.out.println("Rossz számot adtál meg");
@@ -129,18 +135,23 @@ public class Szoftech {
                     break;
                 case 1:
                     //Terem foglalás
-                    termek.listAllTeremEsemennyel();
+                    termek.listAllEsemeny();
                     termek.addEsemeny(inp.inputString("Terem neve: "),
-                            new esemeny(inp.inputString("Esemény neve: "),inp.inputString("Leírás: "), inp.inputSzam("Év: "),
-                                    inp.inputSzam("Hónap: "), inp.inputSzam("Nap: "),
-                                   inp.inputSzam("Kezdés(óra): "), inp.inputSzam("Vége(óra): ")),user);
+                            new esemeny(inp.inputString("Esemény neve: "),inp.inputString("Leírás: "), 
+                                     inp.inputSzam("Nap: (1 - hérfő, 2  - kedd, 3 - szerda, 4 - csütörtök, 5 - péntek)\n"),inp.inputSzam("Kezdés(óra): "),
+                                    inp.inputSzam("Vége(óra): ")),user);
                     break;
                 case 2:
                     //terem foglalás törlése
-                    
+                    termek.torlesTeremEsemenye(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "));
                     break;
                 case 3:
+                    //Saját foglalások megtekintése
+                    termek.listAllSajatEsemeny(user.getNev());
+                    break;
+                case 4:
                     //értékelések megtekintése
+                    termek.listAllSajatErtekeles(user.getNev());
                     break;
                 default:
                     System.out.println("Rossz számot adtál meg");
@@ -154,12 +165,15 @@ public class Szoftech {
                     break;
                 case 1:
                     //Terem létrehozása
+                    termek.addTerem(new terem(inp.inputString("Neve: "),inp.inputSzam("Férőhely: ")));
                     break;
                 case 2:
                     //felheasznalok kilistázása
+                    users.kiirUsers();
                     break;
                 case 3:
-                    //felhasználók módosítása
+                    //felhasználó törlése
+                    users.deleteUser(inp.inputString("Felhasználónév: "));
                     break;
                 case 4:
                     //Speciális regisztráció elfogadása

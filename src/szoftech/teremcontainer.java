@@ -87,7 +87,7 @@ public class teremcontainer {
         for (terem object : trmList) {
             for (esemeny object2 : object.eslist) {
                 if (object2.getFoglalo().equals(foglalo)) {
-                    System.out.println(object.kiirErtek());
+                    System.out.println(object.kiirErtek(foglalo));
                 }
             }
         }

@@ -71,8 +71,8 @@ public class user {
         if (jelentkezett) {
             s+=" Jelentekezett : "+this.getRangString()+"-ra";
         }
-        else s+="Rangja: "+this.getRangString();
-        System.out.println();
+        else s+=" Rangja: "+this.getRangString();
+        System.out.println(s);
     }
     @Override
     public String toString(){        

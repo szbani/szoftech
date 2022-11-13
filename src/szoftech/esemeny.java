@@ -27,6 +27,15 @@ public class esemeny {
         this.vegora=vegora;
         
     }
+    public esemeny(String nev,String leiras,String nap,int kezdora,int vegora) {
+        this.nev=nev;
+        this.leiras=leiras;
+        //calendar
+        this.nap=nap;
+        this.kezdora=kezdora;
+        this.vegora=vegora;
+        
+    }
 
     public void addErtekeles(String ert){
         ertekelesek.add(ert);
@@ -57,15 +66,16 @@ public class esemeny {
         }
     }
     public String kiir(int id){
-        return(" "+id+". Esemény neve: "+this.nev+" foglaló: "+this.getFoglalo()+"\n\t"+this.leiras+"\n\t"+this.nap+", kezdés: "+this.kezdora+"-"+this.vegora+" óráig");
+        return(" "+id+". Esemény neve: "+this.nev+" foglaló: "+this.getFoglalo()+"\n\tLeírás: "+
+                this.leiras+"\n\tkezdés: "+this.nap+" "+this.kezdora+"-"+this.vegora+" óráig");
     }
     @Override
     public String toString() {
-        String ret = this.nev+"#"+this.leiras+"#"+this.nap+"#"+this.kezdora+"#"+this.vegora;
+        String ret = this.nev+"#"+this.leiras+"#"+this.nap+"#"+this.kezdora+"#"+this.vegora+"#";
         for (String string : resztvevok) {
             ret+=","+string;
         }
-        ret+="#";
+        ret+="# ";
         for (String string : ertekelesek) {
             ret+=","+string;
         }

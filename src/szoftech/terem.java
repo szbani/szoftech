@@ -65,12 +65,19 @@ public class terem {
             String[] arr = es.split("#");
             try {
                 Vector<String> users=new Vector<String>();
-                for (int i = 7; i < arr.length; i++) {
-                    users.add(arr[i]);
+                String[] arrus = arr[5].split(",");
+                for (int i = 7; i < arrus.length; i++) {
+                    users.add(arrus[i]);
+                }
+                Vector<String> ertekelesek=new Vector<String>();
+                String[] arrert = arr[6].split(",");
+                for (int i = 7; i < arrert.length; i++) {
+                    ertekelesek.add(arrert[i]);
                 }
                 eslist.add(
-                        new esemeny(arr[0],arr[1],
-                                Integer.parseInt(arr[2]),
+                        new esemeny(arr[0],
+                                arr[1],
+                                arr[2],
                                 Integer.parseInt(arr[3]),
                                 Integer.parseInt(arr[4])));
                 for (esemeny obj : eslist) {
@@ -78,9 +85,10 @@ public class terem {
                         obj.addUser(users.get(i));
                     }                                   
                 }
+                
                 for (esemeny obj : eslist) {
-                    for (int i = 0; i < users.size(); i++) {
-                        obj.addErtekeles(users.get(i));
+                    for (int i = 0; i < ertekelesek.size(); i++) {
+                        obj.addErtekeles(ertekelesek.get(i));
                     }
                 }
             } catch (Exception e) {
@@ -88,8 +96,13 @@ public class terem {
             }                       
         }
         return null;
-    }public String kiirErtek(){
-        return this.nev+"terem: "+this.kiirErtek();
+    }public String kiirErtek(String username){
+        String s = this.nev+"terem: ";
+            for (esemeny es : eslist) {
+                if(es.getFoglalo().equals(username))
+                s+= es.kiirErtekeles();
+            }
+        return s;
     }
     public void addErtekels(int esid, String ertekeles ){
         eslist.get(esid).addErtekeles(ertekeles);
@@ -100,7 +113,7 @@ public class terem {
     public String kiirEsemennyel(){
         String ret = "Terem :"+this.nev+" ";
         for (esemeny object : eslist) {
-            ret+="\t"+object.kiir(eslist.indexOf(object)+1);
+            ret+="\n\t"+object.kiir(eslist.indexOf(object)+1);
         }
         return ret;
     }

@@ -24,8 +24,12 @@ public class usercontainer {
         }
         
     }
-    public void deleteUser(){
-        
+    public void deleteUser(String username){
+        for (user us : usLst) {
+            if(us.getUser().equals(username)){
+                usLst.remove(us);
+            }
+        }
     }
     public user getUser(String usrn){
         for (user us : usLst) {
@@ -44,7 +48,8 @@ public class usercontainer {
             us.kiir(i);
             i++;
         }
-    }public void kiirUsers(int rang){
+    }
+    public void kiirUsers(int rang){
         int i = 0;
         for (user us : usLst) {
             if(us.getRang() == rang)us.kiir(i);
