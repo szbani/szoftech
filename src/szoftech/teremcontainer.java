@@ -24,43 +24,51 @@ public class teremcontainer {
     public void addTerem(terem t){
         if (this.checkCredentials(t)) {
             trmList.add(t);
+            mentes();
         }
     }
     public void teremEsemenyereJelentkezes(String teremnev, int esId, user us){
         for (terem object : trmList) {
             if (object.getNev().equals(teremnev)) {
                 object.addUser(esId, us.getNev());
-
+                mentes();
             }
         }
     }
-    public void addEsemeny(String teremnev,esemeny es){
+    public void addEsemeny(String teremnev,esemeny es, user us){
         for (terem object : trmList) {
             if (object.getNev().equals(teremnev)) {
+                es.addUser(us.getNev());
                 object.addEsemeny(es);
+                mentes();
             }
         }
     }
     public void modositLeiras(String terem,String ujleiras){
         for (terem object : trmList) {
-            if(object.getNev().equals(object)){
-                object.setLeiras(ujleiras);                    //lehet nem mukodik Sorry
+            if(object.getNev().equals(terem)){
+                object.setLeiras(ujleiras);                    
+                mentes();
             }
         }        
     }
     public void modositFerohely(String terem,int ujferohely){
         for (terem object : trmList) {
-            if(object.getNev().equals(object)){
-                object.setFerohely(ujferohely);                  //lehet nem mukodik Sorry
+            if(object.getNev().equals(terem)){
+                object.setFerohely(ujferohely);
+                mentes();           
             }
         }        
     }
     public void torlesTerem(String teremnev){
+        int i = 0;
         for (terem object : trmList) {
-            if(object.getNev().equals(object)){
-                trmList.remove(object);                    //lehet nem mukodik Sorry
+            if(object.getNev().equals(teremnev)){
+                trmList.remove(i);
+                mentes();
+                break;
             }
-            
+            i++;
         }        
     }
     public void torlesTeremEsemenye(String teremnev, int id){
@@ -68,6 +76,7 @@ public class teremcontainer {
             if (object.getNev().equals(teremnev)) {
                 object.esemenytorol(id-1);
                 System.out.println("Az esemény Törlése megtörtént!");
+                mentes();
                 break;
             }
         }        
@@ -96,11 +105,15 @@ public class teremcontainer {
         }
     }
     public void listAllTeremSima(){
+        System.out.println("");
+        System.out.println("Termek:");
         for (terem object : trmList) {
-            object.kiirTerem();
+            System.out.println(object.kiirTerem());
         }
     }
     public void listAllTeremEsemennyel(){
+        System.out.println("");
+        System.out.println("Termek:");
         for (terem object : trmList) {
             System.out.println(object.kiirEsemennyel());
         }

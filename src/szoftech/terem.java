@@ -92,20 +92,20 @@ public class terem {
         eslist.get(esid).addUser(nev);
     }
     public String kiirEsemennyel(){
-        String ret="Név"+nev + ferohely + leiras;
+        String ret = kiirTerem();
         for (esemeny object : eslist) {
-            ret+="\t"+object.kiir();
+            ret+="\t"+object.kiir(eslist.indexOf(object)+1);
         }
         return ret;
     }
     public String kiirTerem(){
-        String ret="Név"+nev + ferohely + leiras;
+        String ret="Név: "+nev+" Férőhely: " + ferohely +" Leírás: " + leiras;
         
         return ret;
     }
     @Override
     public String toString(){
-        return "Név"+nev+" "+" "+ferohely +" "+ leiras; 
+        return nev+" "+ferohely +" "+ leiras; 
     }
 
     //foglal�s �tk�z�s�nek leellen?rz�se

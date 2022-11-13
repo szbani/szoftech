@@ -10,6 +10,7 @@ public class Szoftech {
     user user = null;
     Boolean vissza = false;
     public usercontainer users = new usercontainer();
+    public teremcontainer termek = new teremcontainer();
 
     public static void main(String[] args) {
         Szoftech sz = new Szoftech();
@@ -98,6 +99,7 @@ public class Szoftech {
 
     public void mainMenuEvents() {
         int parancs = inp.inputSzam("Add meg a Parancs számát: ");
+        vissza = false;
         switch (parancs) {
             case 0:
                 //kijelentkezes
@@ -105,9 +107,12 @@ public class Szoftech {
                 break;
             case 1:
                 //esemeny kilistazas
+                
                 break;
             case 2:
                 //esemenyre jelentkezes
+//                termek.teremEsemenyereJelentkezes(teremnev, parancs, user);
+                    
                 break;
         }
         if (user == null) {
@@ -117,29 +122,35 @@ public class Szoftech {
             switch (parancs) {
                 case 3:
                     //sajat foglalasok kilistazasa
+                    termek.listAllSajatEsemeny(user.getNev());
                     break;
                 case 4:
                     //terem foglalasa
+                    termek.listAllTeremEsemennyel();
+                    termek.addEsemeny(inp.inputString("Terem neve: "),
+                            new esemeny(inp.inputString("Esemény neve: "),inp.inputString("Leírás: "), inp.inputSzam("Év: "),
+                                    inp.inputSzam("Hónap: "), inp.inputSzam("Nap: "),
+                                   inp.inputSzam("Kezdés(óra): "), inp.inputSzam("Vége(óra): ")),user);
                     break;
                 case 5:
                     //terem foglalas torlese
+                    termek.listAllSajatEsemeny(user.getNev());
+                    termek.torlesTeremEsemenye(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "));
                     break;
             }
         }
         if (user.getRang() > 1) {
-            
-            switch (parancs) {
+            switch (parancs) { 
                 case 6:
                     //termek kezelese
                     while (!vissza) {
                         termekMenu();
                         termekMenuEvents();
-                        break;
                     }
                     break;
                 case 7:
                     //felheasznalok kezelese
-                    while(!vissza){
+                    while (!vissza) {
                         felMenu();
                         felMenuEvents();
                     }
@@ -149,20 +160,24 @@ public class Szoftech {
                     break;
             }
         }
-        switch (parancs) {
-                default:
-                    System.out.println("Rossz számot adtál meg");
-                    break;
-            }
+        if(user.getRang() == 0 && (parancs < 0 || parancs > 2)){
+            System.out.println("Rossz számot adtál meg");
         }
-    
+        if(user.getRang() == 1 && (parancs < 0 || parancs > 5)){
+            System.out.println("Rossz számot adtál meg");
+        }
+        if(user.getRang() == 2 && (parancs < 0 || parancs > 8)){
+            System.out.println("Rossz számot adtál meg");
+        }
+    }
 
     public void termekMenu() {
         System.out.println("");
-        System.out.println("Felhasználók kezelése");
-        System.out.println("1 - Felhasználók kilistázása");
-        System.out.println("2 - Felhasználó törlése");
-        System.out.println("3 - Foglalói jogosultság törlése");
+        System.out.println("Termek kezelése");
+        System.out.println("1 - Termek kilistázása");
+        System.out.println("2 - Terem hozzáadása");
+        System.out.println("3 - Terem törlése");
+        System.out.println("4 - Terem módosítása");
         System.out.println("0 - Vissza");
 
     }
@@ -172,13 +187,47 @@ public class Szoftech {
             case 0:
                 vissza = true;
                 break;
+            case 1:
+                termek.listAllTeremSima();
+                break;
+            case 2:
+                termek.addTerem(new terem(inp.inputString("Terem neve: "),
+                        inp.inputSzam("Férőhely: "),
+                        inp.inputString("Leírás: ")));
+                break;
+            case 3:
+                termek.listAllTeremSima();
+                termek.torlesTerem(inp.inputString("Terem neve:"));
+                break;
+            case 4:
+                System.out.println("1 - Leírás módosítása");
+                System.out.println("2 - Férőhely módosítása");
+                switch (inp.inputSzam("Add meg a Parancs számát:")) {
+                    case 1:
+                        termek.listAllTeremSima();
+                        termek.modositLeiras(inp.inputString("Terem neve: "),inp.inputString("Terem új leírása: "));
+                        break;
+                    case 2:
+                        termek.listAllTeremSima();
+                        termek.modositFerohely(inp.inputString("Terem neve: "), inp.inputSzam("Add meg az új férőhelyt: "));
+                        break;
+                    default:
+                        System.out.println("Rossz számot adtál meg");
+                        break;
+                }
+                break;
             default:
                 System.out.println("Rossz számot adtál meg");
         }
     }
 
     public void felMenu() {
-
+        System.out.println("");
+        System.out.println("Felhasználók kezelése");
+        System.out.println("1 - Felhasználók kilistázása");
+        System.out.println("2 - Felhasználó törlése");
+        System.out.println("3 - Foglalói jogosultság törlése");
+        System.out.println("0 - Vissza");
     }
 
     public void felMenuEvents() {
@@ -190,10 +239,12 @@ public class Szoftech {
                 System.out.println("Rossz számot adtál meg");
         }
     }
-    public void jogMenu(){
-        
+
+    public void jogMenu() {
+
     }
-    public void jogMenuEvents(){
+
+    public void jogMenuEvents() {
         switch (inp.inputSzam("Add meg a Parancs számát: ")) {
             case 0:
                 vissza = true;
@@ -202,6 +253,5 @@ public class Szoftech {
                 System.out.println("Rossz számot adtál meg");
         }
     }
-
 
 }
