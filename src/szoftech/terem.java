@@ -85,11 +85,12 @@ public class terem {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-            }
-            
-            
+            }                       
         }
         return null;
+    }
+    public void addEsemeny(int esid, String ertekeles ){
+        eslist.get(esid).addErtekeles(ertekeles);
     }
     public void addUser(int esid, String nev ){
         eslist.get(esid).addUser(nev);
