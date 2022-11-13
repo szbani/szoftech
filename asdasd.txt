@@ -1,38 +1,25 @@
+regisztráció
+speciális regisztráció
+bejelentkezés
+kilépés
 
-események megtekintése(összes terem vagy kiválasztott) -> termek kilistázása
-terem eseményére jelentkezés
-foglalónak jelentkezés (if rang 0)
-Kijelentkezés						done
+(rang 0)
+esemenyek megtekintése-> opcionalis terem eseményére jelentkezés	
+értékelés irás											
+Kijelentkezés										done
 
 (rang 1)
-saját foglalások kilisázása				done
-terem foglalása -> termek kilistázása -> terem esemányeinek kilistázása			done
-terem foglalás törlése -> saját foglalások kilisázása					done
+terem foglalás - > termek kilistázása->new esemény		
+terem foglalás törlése -> esemenyek megtekintése	
+értékelések megtekintése				
+Kijelentkezés
 
-
-(rang 2)
-teremek kezelése
-	termek kilistázása 				done
-	terem létrehozása 				done
-	terem törlése -> termek kilistázása		done	
-	terem módosítása -> termek kilistázása		done
-		leírás módosítása			done
-		férőhely módosítása			done
-	vissza						done
-
-felhasználók kezelése
-	felhasználók kilistázása			
-	felhasználó törlése
-	foglalói jogosultság törlése
-	vissza						done
-
-Foglalói jogosultság kérők kezelése
-	jogosultság kérők listázása
-	Jogosultság Kérés kezelése
-		kérés elfogadása
-		kérés elutasítása
-	vissza						done
-
+(rang 2)				
+terem létrehozása 						done					
+felhasznalok kilistazasa
+felhazsnalok modositasa 
+spec regisztráció elfogadása
+Kijelentkezés
 
 
 
