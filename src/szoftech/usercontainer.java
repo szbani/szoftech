@@ -23,7 +23,7 @@ public class usercontainer {
         usLst.add(e);
     }
     public void addUser(user us){
-        if (this.checkCredentials(us)) {
+        if (this.userExists(us)) {
             usLst.add(us);    
         }
         
@@ -95,7 +95,7 @@ public class usercontainer {
     }
     
     
-    public boolean checkCredentials(user usr){
+    private boolean userExists(user usr){
         for (user us : usLst) {            
             if (us.getUser().equalsIgnoreCase(usr.getUser())) {
                 System.out.println("A felhasználónév foglalt");
@@ -106,14 +106,10 @@ public class usercontainer {
         
         return true ;
     }
-    public void mentes(){
+    private void mentes(){
         inputOutput ki = new inputOutput();
         ki.writeFile(usLst, "users.txt");
     }
-    public int getSize(){
-        return usLst.size();
-    }
-    
     
     
 }
