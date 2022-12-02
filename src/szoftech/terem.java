@@ -108,7 +108,7 @@ public class terem {
         eslist.get(esid).addErtekeles(ertekeles);
     }
     public void addUser(int esid, String nev ){
-        eslist.get(esid).addUser(nev);
+        eslist.get(esid-1).addUser(nev);
     }
     public String kiirEsemennyel(){
         String ret = "Terem :"+this.nev+" ";
