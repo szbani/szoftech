@@ -24,18 +24,8 @@ public class terem {
     public void esemenytorol(int id){
         eslist.remove(id);
     }
-    public void setNev(String nev){
-        this.nev = nev;
-    }
-    public void setFerohely(int ferohely){
-        this.ferohely = ferohely;
-    }
     
     public void addEsemeny(esemeny es){
-        if (eslist.size()==ferohely) {
-            System.out.println("Betelt A Terem !");
-        }
-        else{
         boolean foglalt = false;
         for (esemeny object : eslist) {
             if (object.egyidopont(es)) {
@@ -47,7 +37,7 @@ public class terem {
         }
         else eslist.add(es);
         mentes();
-        }
+        
     }
     public void listEsemeny(){
         for (esemeny obj : eslist) {
@@ -97,18 +87,26 @@ public class terem {
         }
         return null;
     }public String kiirErtek(String username){
-        String s = this.nev+"terem: ";
+        String s = this.nev+" terem: \n";
             for (esemeny es : eslist) {
                 if(es.getFoglalo().equals(username))
-                s+= es.kiirErtekeles();
+                s+= es.kiirErtekeles()+" ";
             }
         return s;
     }
     public void addErtekels(int esid, String ertekeles ){
         eslist.get(esid).addErtekeles(ertekeles);
+        mentes();
     }
     public void addUser(int esid, String nev ){
-        eslist.get(esid-1).addUser(nev);
+        if (eslist.size()==ferohely) {
+            System.out.println("Betelt A Terem !");
+        }
+        else{
+            eslist.get(esid-1).addUser(nev);
+
+        }
+        mentes();
     }
     public String kiirEsemennyel(){
         String ret = "Terem :"+this.nev+" ";
@@ -126,7 +124,10 @@ public class terem {
     public String toString(){
         return nev+" "+ferohely; 
     }
-
+    public boolean esIdLetezik(int ID){
+        return this.eslist.size()>ID;
+ 
+    }
     //foglal�s �tk�z�s�nek leellen?rz�se
     
 

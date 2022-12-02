@@ -11,6 +11,8 @@ public class inputOutput {
             System.out.print(kiiras);
             Scanner sc = new Scanner(System.in);
             String i = sc.nextLine();
+            i=i.replace(",", " ");
+            i=i.replace("#", " ");
             return i;
         } catch (Exception e) {
             e.printStackTrace();
@@ -26,7 +28,7 @@ public class inputOutput {
             return i;
         }catch(InputMismatchException ex){
             System.out.println("Nem számot adtál meg");
-            return -1;
+            return inputSzam(kiiras);
         }
         catch (Exception e) {
             e.printStackTrace();

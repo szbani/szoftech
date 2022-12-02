@@ -8,8 +8,8 @@ public class Szoftech {
     inputOutput inp = new inputOutput();
     Boolean exit = false;
     user user = null;
-    public usercontainer users = new usercontainer();
-    public teremcontainer termek = new teremcontainer();
+    usercontainer users = new usercontainer();
+    teremcontainer termek = new teremcontainer();
 
     public static void main(String[] args) {
         Szoftech sz = new Szoftech();
@@ -89,7 +89,8 @@ public class Szoftech {
         System.out.println("Fiók: " + user.getNev() + " - " + user.getRangString());
         if(user.getRang() == 0){
         System.out.println("1 - Események Megtekintése");
-        System.out.println("2 - Értékelés írása");
+        System.out.println("2 - Eseményre jelentkezés");
+        System.out.println("3 - Értékelés írása");
         }
         else if (user.getRang() == 1) {
             System.out.println("1 - Terem foglalás");
@@ -113,21 +114,32 @@ public class Szoftech {
             switch (parancs) {
                 case 0:
                     //kijelentkezes
-                    user = null;
-                    System.out.println("Kijelentkeztél");
+                    logOut();
                     break;
                 case 1:
                     //események megtekintése
                     System.out.println("");
-                    termek.listAllEsemeny();
-                    System.out.println("Szeretnél eseményre jelentkezni?");
-                    if(inp.inputString("Y/N\n").equalsIgnoreCase("y")){
-                        termek.teremEsemenyereJelentkezes(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "), user);
-                    }
+                    termek.listAllEsemeny();                                        
                     break;
                 case 2:
+                    //esemenyre jelentkezes
+                    termek.listAllEsemeny();
+                    String nev=inp.inputString("Terem neve: ");
+                    while (termek.teremLetezik(nev)) {
+                        System.out.println("Nem létezik a megadott nevü terem!");
+                        nev=inp.inputString("Újra a Terem neve: ");
+                    }
+                    int esID= inp.inputSzam("Esemény száma: ");
+                    while (!termek.esmenyLetezik(nev,esID)) {                        
+                        System.out.println("Nem létezik az esemény adott számon!");
+                        esID= inp.inputSzam("Újra az Esemény száma: ");
+                    }
+                    termek.teremEsemenyereJelentkezes(nev,esID , user);
+                    break;
+                case 3:
                     //Értékelés irása
                     System.out.println("");
+                    
                     termek.addErtekeles(inp.inputString("Terem neve: "), inp.inputSzam("Esemény száma: "), inp.inputString("Értékelés: "));
                     break;
                 default:
@@ -138,8 +150,7 @@ public class Szoftech {
             switch (parancs) {
                 case 0:
                     //kijelentkezes
-                    user = null;
-                    System.out.println("Kijelentkeztél");
+                    logOut();
                     break;
                 case 1:
                     //Terem foglalás
@@ -173,13 +184,17 @@ public class Szoftech {
             switch (parancs) { 
                 case 0:
                     //kijelentkezes
-                    user = null;
-                    System.out.println("Kijelentkeztél");
+                    logOut();
                     break;
                 case 1:
                     //Terem létrehozása
                     System.out.println("");
-                    termek.addTerem(new terem(inp.inputString("Neve: "),inp.inputSzam("Férőhely: ")));
+                    String teremNev=inp.inputString("Neve: ");
+                    while (!termek.teremLetezik(teremNev)) {
+                        System.out.println("Már létezik a megadott nevü terem!");
+                        teremNev=inp.inputString("Újra a Terem neve: ");    
+                    }
+                    termek.addTerem(new terem(teremNev,inp.inputSzam("Férőhely: ")));
                     break;
                 case 2:
                     //felheasznalok kilistázása
@@ -210,6 +225,10 @@ public class Szoftech {
         else{
             user = null;
         }
+    }
+    void logOut(){                            
+        user = null;                    
+        System.out.println("Kijelentkeztél");
     }
 
 }

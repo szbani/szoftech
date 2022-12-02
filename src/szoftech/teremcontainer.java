@@ -85,12 +85,8 @@ public class teremcontainer {
         System.out.println("");
         System.out.println("Saját értékelések:");
         for (terem object : trmList) {
-            for (esemeny object2 : object.eslist) {
-                if (object2.getFoglalo().equals(foglalo)) {
-                    System.out.println(object.kiirErtek(foglalo));
-                }
-            }
-        }
+            System.out.println(object.kiirErtek(foglalo)+"\n");                
+        }       
     }
     public void listAllSajatEsemeny(String foglalo) {
         System.out.println("");
@@ -133,10 +129,26 @@ public class teremcontainer {
         for (terem object : trmList) {
             if (object.getNev().equals(teremnev)) {
                 for (terem e : trmList) {
-                    e.addErtekels(esid, ertekeles);
+                    e.addErtekels(esid-1, ertekeles);
                 }
             }
         }
         mentes();
+    }
+    public boolean esmenyLetezik(String nev,int esID){
+        for (terem object : trmList) {
+            if (object.getNev().equals(nev)) {
+                return object.esIdLetezik(esID);
+            }
+        }
+        return false;
+    }
+    public boolean teremLetezik(String nev){
+        for (terem object : trmList) {
+            if (object.getNev().equals(nev)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -75,18 +75,21 @@ public class esemeny {
         for (String string : resztvevok) {
             ret+=string+",";
         }
-        ret+="# ";
+        ret+="#";
         for (String string : ertekelesek) {
             ret+=string+",";
         }
         return ret;
     }
     public String kiirErtekeles(){
-        String a= this.nev+" Ertekelesek: ";
+        if (!ertekelesek.isEmpty()) {
+            String a= this.nev+"(nevü esemeny) Értékelesei: ";
         for (String string : ertekelesek) {
             a+="\n\t"+string;
         }
-        return a;
+        return a+"\n";
+        }
+        return "Nincs értékelés";
     }
     public boolean egyidopont(esemeny masik){
         return this.nap.equals(masik.nap);
@@ -95,7 +98,9 @@ public class esemeny {
         resztvevok.add(us);
     }
     public void addUser(user us){
-        resztvevok.add(us.getNev());
+        if(!resztvevok.contains(us)){
+            resztvevok.add(us.getNev());
+        }
     }
     public String getFoglalo(){
         return resztvevok.get(0);

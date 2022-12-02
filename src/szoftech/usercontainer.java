@@ -20,7 +20,12 @@ public class usercontainer {
     }
     public void addSpecialuser(user e,int rang){
         e.specReg(rang);
-        usLst.add(e);
+        if (userExists(e)) {
+            usLst.add(e);
+        }
+        else{
+                System.out.println("A felhasználónév foglalt");
+                }
     }
     public void addUser(user us){
         if (this.userExists(us)) {
@@ -55,13 +60,6 @@ public class usercontainer {
         int i = 0;
         for (user us : usLst) {
             us.kiir(i);
-            i++;
-        }
-    }
-    public void kiirUsers(int rang){
-        int i = 0;
-        for (user us : usLst) {
-            if(us.getRang() == rang)us.kiir(i);
             i++;
         }
     }
@@ -106,7 +104,7 @@ public class usercontainer {
         
         return true ;
     }
-    private void mentes(){
+    public void mentes(){
         inputOutput ki = new inputOutput();
         ki.writeFile(usLst, "users.txt");
     }
