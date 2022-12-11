@@ -3,12 +3,12 @@ package szoftech;
 
 import java.util.*;
 
-public class terem {
+public class Terem {
     String nev;
     int ferohely;
-    Vector<esemeny> eslist=new Vector<esemeny>();
+    Vector<Esemeny> eslist=new Vector<Esemeny>();
     
-    public terem(String nev,int ferohely){
+    public Terem(String nev,int ferohely){
         this.nev = nev;
         this.ferohely = ferohely;
         betoltes();
@@ -30,9 +30,9 @@ public class terem {
         else System.out.println("Nem jó ID-t adtál meg (Művelet megszakítása)!");
     }
     
-    public void addEsemeny(esemeny es){
+    public void addEsemeny(Esemeny es){
         boolean foglalt = false;
-        for (esemeny object : eslist) {
+        for (Esemeny object : eslist) {
             if (object.egyidopont(es)) {
                 foglalt=true;
             }
@@ -45,7 +45,7 @@ public class terem {
         
     }
     public void listEsemeny(){
-        for (esemeny obj : eslist) {
+        for (Esemeny obj : eslist) {
             System.out.println(obj.toString());
         }
     }
@@ -53,7 +53,7 @@ public class terem {
         inputOutput ki = new inputOutput();
         ki.writeFile(eslist, nev+".txt");
     }
-    public Vector<esemeny> betoltes(){
+    public Vector<Esemeny> betoltes(){
         inputOutput be = new inputOutput();
         List<String> list = be.getFile(nev+".txt");
         for (String es : list) {
@@ -70,18 +70,18 @@ public class terem {
                     ertekelesek.add(arrert[i]);
                 }
                 eslist.add(
-                        new esemeny(arr[0],
+                        new Esemeny(arr[0],
                                 arr[1],
                                 arr[2],
                                 Integer.parseInt(arr[3]),
                                 Integer.parseInt(arr[4])));
-                for (esemeny obj : eslist) {
+                for (Esemeny obj : eslist) {
                     for (int i = 0; i < users.size(); i++) {
                         obj.addUser(users.get(i));
                     }                                   
                 }
                 
-                for (esemeny obj : eslist) {
+                for (Esemeny obj : eslist) {
                     for (int i = 0; i < ertekelesek.size(); i++) {
                         obj.addErtekeles(ertekelesek.get(i));
                     }
@@ -93,7 +93,7 @@ public class terem {
         return null;
     }public String kiirErtek(String username){
         String s = this.nev+" terem: \n";
-            for (esemeny es : eslist) {
+            for (Esemeny es : eslist) {
                 if(es.getFoglalo().equals(username))
                 s+= es.kiirErtekeles()+" ";
             }
@@ -115,7 +115,7 @@ public class terem {
     }
     public String kiirEsemennyel(){
         String ret = "Terem :"+this.nev+" ";
-        for (esemeny object : eslist) {
+        for (Esemeny object : eslist) {
             ret+="\n\t"+object.kiir(eslist.indexOf(object)+1);
         }
         return ret;

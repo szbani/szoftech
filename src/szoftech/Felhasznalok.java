@@ -1,16 +1,16 @@
 package szoftech;
 import java.util.*;
 
-public class usercontainer {
-    private Vector<user> usLst=new Vector<user>();
+public class Felhasznalok {
+    private Vector<Felhasznalo> usLst=new Vector<Felhasznalo>();
     
-    public usercontainer() {
+    public Felhasznalok() {
         inputOutput be = new inputOutput();
         List<String> list = be.getFile("users.txt");
         for (String us : list) {
             String[] arr = us.split(" ");
             try {
-                usLst.add(new user(arr[0],arr[1],arr[2],arr[3],Integer.parseInt(arr[4]),Boolean.parseBoolean(arr[5])));
+                usLst.add(new Felhasznalo(arr[0],arr[1],arr[2],arr[3],Integer.parseInt(arr[4]),Boolean.parseBoolean(arr[5])));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -18,7 +18,7 @@ public class usercontainer {
             
         }
     }
-    public void addSpecialuser(user e,int rang){
+    public void addSpecialuser(Felhasznalo e,int rang){
         e.specReg(rang);
         if (userExists(e)) {
             usLst.add(e);
@@ -27,7 +27,7 @@ public class usercontainer {
                 System.out.println("A felhasználónév foglalt");
                 }
     }
-    public void addUser(user us){
+    public void addUser(Felhasznalo us){
         if (this.userExists(us)) {
             usLst.add(us);    
         }
@@ -35,7 +35,7 @@ public class usercontainer {
     }
     public void felhasznalokTorlese(String username){
         int i = 0;
-        for (user us : usLst) {
+        for (Felhasznalo us : usLst) {
             if(us.getUser().equals(username)){
                 usLst.remove(i);
                 mentes();
@@ -45,20 +45,20 @@ public class usercontainer {
             i++;
         }
     }
-    public user getUser(String usrn){
-        for (user us : usLst) {
+    public Felhasznalo getUser(String usrn){
+        for (Felhasznalo us : usLst) {
             if (us.getUser().equalsIgnoreCase(usrn)) {
                 return us;
             }
         }
         return null;
     }
-    public user getUser(int index){
+    public Felhasznalo getUser(int index){
         return usLst.get(index);
     }
     public void felhasznalokKilistazasa(){
         int i = 0;
-        for (user us : usLst) {
+        for (Felhasznalo us : usLst) {
             us.kiir(i);
             i++;
         }
@@ -66,7 +66,7 @@ public class usercontainer {
 
     public void specialisRegisztraciokBiralasa(String username,String yesOrNO){
         int i=0;
-        for (user object : usLst) {
+        for (Felhasznalo object : usLst) {
             if (object.getUser().equals(username)) {
                 if (yesOrNO.toLowerCase().equals("y")) {
                     usLst.elementAt(i).elfogad();
@@ -79,8 +79,8 @@ public class usercontainer {
             }
             i++;
         }    }
-    public user loginUser(String usrn,String pw){
-        for (user us : usLst) {
+    public Felhasznalo loginUser(String usrn,String pw){
+        for (Felhasznalo us : usLst) {
             if (us.getUser().equalsIgnoreCase(usrn)&&us.getPw().equals(pw)&&us.isJelentkezett()) {
                 System.out.println("Bejelentkeztél");
                 return us;
@@ -91,8 +91,8 @@ public class usercontainer {
     }
     
     
-    private boolean userExists(user usr){
-        for (user us : usLst) {            
+    private boolean userExists(Felhasznalo usr){
+        for (Felhasznalo us : usLst) {            
             if (us.getUser().equalsIgnoreCase(usr.getUser())) {
                 System.out.println("A felhasználónév foglalt");
                 return false;

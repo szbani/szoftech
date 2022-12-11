@@ -2,14 +2,14 @@
 package szoftech;
 
 
-public class user {
+public class Felhasznalo {
     private String user;
     protected String pw;
     protected Rang rang;
     private String vezNev,kerNev;
     private boolean jelentkezett=false;
 
-    public user(String user,String pw,String veznev,String kerNev,int rang, Boolean b) {     
+    public Felhasznalo(String user,String pw,String veznev,String kerNev,int rang, Boolean b) {     
         this.user=user;
         this.pw=pw;
         this.vezNev=veznev;
@@ -17,7 +17,7 @@ public class user {
         this.rang=new Rang(rang);
         this.jelentkezett = b;
     }
-    public user(String user,String pw,String veznev,String kerNev) {     
+    public Felhasznalo(String user,String pw,String veznev,String kerNev) {     
         this.user=user;
         this.pw=pw;
         this.vezNev=veznev;

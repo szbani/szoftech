@@ -3,16 +3,16 @@ package szoftech;
 import java.io.*;
 import java.util.*;
 
-public class Szoftech {
+public class TeremFoglaloRendszer {
 
     inputOutput inp = new inputOutput();
     Boolean exit = false;
-    user user = null;
-    usercontainer users = new usercontainer();
-    teremcontainer termek = new teremcontainer();
+    Felhasznalo user = null;
+    Felhasznalok users = new Felhasznalok();
+    Termek termek = new Termek();
 
     public static void main(String[] args) {
-        Szoftech sz = new Szoftech();
+        TeremFoglaloRendszer sz = new TeremFoglaloRendszer();
 
         while (!sz.exit) {
             if (sz.user == null) {
@@ -69,7 +69,7 @@ public class Szoftech {
     public void registerUser() {
         System.out.println("");
         System.out.println("Regisztráció");
-        user us = new user(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
+        Felhasznalo us = new Felhasznalo(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
                 inp.inputString("Vezetéknév: "), inp.inputString("Keresztnév:"));
         users.addUser(us);
         users.mentes();
@@ -78,7 +78,7 @@ public class Szoftech {
     public void registerSpecialUser() {
         System.out.println("");
         System.out.println("Regisztráció");
-        user us = new user(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
+        Felhasznalo us = new Felhasznalo(inp.inputString("Felhasználónév: "), inp.inputString("Jelszó: "),
                 inp.inputString("Vezetéknév: "), inp.inputString("Keresztnév:"));
         users.addSpecialuser(us, inp.inputSzam("Milyen rangot szeretnél?\n1 - Foglaló \t2 - Operátor\n"));
         users.mentes();
@@ -157,7 +157,7 @@ public class Szoftech {
                     System.out.println("");
                     termek.listAllEsemeny();
                     termek.addEsemeny(inp.inputString("Terem neve: "),
-                            new esemeny(inp.inputString("Esemény neve: "),inp.inputString("Leírás: "), 
+                            new Esemeny(inp.inputString("Esemény neve: "),inp.inputString("Leírás: "), 
                                      inp.inputSzam("Nap: (1 - hérfő, 2  - kedd, 3 - szerda, 4 - csütörtök, 5 - péntek)\n"),inp.inputSzam("Kezdés(óra): "),
                                     inp.inputSzam("Vége(óra): ")),user);
                     break;
@@ -194,7 +194,7 @@ public class Szoftech {
                         System.out.println("Már létezik a megadott nevü terem!");
                         teremNev=inp.inputString("Újra a Terem neve: ");    
                     }
-                    termek.teremLetrehozas(new terem(teremNev,inp.inputSzam("Férőhely: ")));
+                    termek.teremLetrehozas(new Terem(teremNev,inp.inputSzam("Férőhely: ")));
                     break;
                 case 2:
                     //felheasznalok kilistázása

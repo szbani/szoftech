@@ -5,7 +5,7 @@ package szoftech;
 import java.util.Vector;
 
 
-public class esemeny {
+public class Esemeny {
     
     private String nev;
     String leiras;
@@ -18,7 +18,7 @@ public class esemeny {
     // esemenyre jelentkezés user hozz
     
 
-    public esemeny(String nev,String leiras,int nap,int kezdora,int vegora) {
+    public Esemeny(String nev,String leiras,int nap,int kezdora,int vegora) {
         this.nev=nev;
         this.leiras=leiras;
         //calendar
@@ -27,7 +27,7 @@ public class esemeny {
         this.vegora=vegora;
         
     }
-    public esemeny(String nev,String leiras,String nap,int kezdora,int vegora) {
+    public Esemeny(String nev,String leiras,String nap,int kezdora,int vegora) {
         this.nev=nev;
         this.leiras=leiras;
         //calendar
@@ -91,13 +91,13 @@ public class esemeny {
         }
         return "Nincs értékelés";
     }
-    public boolean egyidopont(esemeny masik){
+    public boolean egyidopont(Esemeny masik){
         return this.nap.equals(masik.nap);
     }
     public void addUser(String us){
         resztvevok.add(us);
     }
-    public void addUser(user us){
+    public void addUser(Felhasznalo us){
         if(!resztvevok.contains(us)){
             resztvevok.add(us.getNev());
         }
