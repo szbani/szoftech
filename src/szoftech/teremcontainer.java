@@ -22,7 +22,7 @@ public class teremcontainer {
         }
     }
 
-    public void addTerem(terem t) {
+    public void teremLetrehozas(terem t) {        
         if (this.checkCredentials(t)) {
             trmList.add(t);
             mentes();
@@ -59,7 +59,6 @@ public class teremcontainer {
         for (terem object : trmList) {
             if (object.getNev().equals(teremnev)) {
                 object.esemenytorol(id - 1);
-                System.out.println("Az esemény Törlése megtörtént!");
                 mentes();
                 break;
             }

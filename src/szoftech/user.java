@@ -5,7 +5,7 @@ package szoftech;
 public class user {
     private String user;
     protected String pw;
-    private int rang;
+    protected Rang rang;
     private String vezNev,kerNev;
     private boolean jelentkezett=false;
 
@@ -14,7 +14,7 @@ public class user {
         this.pw=pw;
         this.vezNev=veznev;
         this.kerNev=kerNev;
-        this.rang=rang;
+        this.rang=new Rang(rang);
         this.jelentkezett = b;
     }
     public user(String user,String pw,String veznev,String kerNev) {     
@@ -22,11 +22,11 @@ public class user {
         this.pw=pw;
         this.vezNev=veznev;
         this.kerNev=kerNev;
-        this.rang=0;
+        this.rang= new Rang(0);
     }
     public void specReg(int rang){
         jelentkezett=true;
-        this.rang=rang;
+        this.rang.setRang(rang);
     }
     
     public void elfogad(){
@@ -38,18 +38,7 @@ public class user {
 
     
     
-    public String getRangString(){
-        switch (this.rang) {
-            case 0:
-                return "Felasználó";
-            case 1:
-                return "Foglaló";
-            case 2:
-                return "Operátor";
-            default:
-                throw new AssertionError();
-        }
-    }
+
 
     public String getPw() {
         return pw;
@@ -64,7 +53,7 @@ public class user {
     }
 
     public int getRang() {
-        return rang;
+        return rang.getRang();
     }
     public String getNev(){
         return this.vezNev+" "+this.kerNev;
@@ -72,9 +61,9 @@ public class user {
     public void kiir(int sorszam){
         String s=sorszam+" - "+getUser()+ " " +getNev();
         if (jelentkezett) {
-            s+=" Jelentekezett : "+this.getRangString()+"-ra";
+            s+=" Jelentekezett : "+this.rang.getRangString()+"-ra";
         }
-        else s+=" Rangja: "+this.getRangString();
+        else s+=" Rangja: "+this.rang.getRangString();
         System.out.println(s);
     }
     @Override

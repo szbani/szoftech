@@ -33,7 +33,7 @@ public class usercontainer {
         }
         
     }
-    public void deleteUser(String username){
+    public void felhasznalokTorlese(String username){
         int i = 0;
         for (user us : usLst) {
             if(us.getUser().equals(username)){
@@ -56,7 +56,7 @@ public class usercontainer {
     public user getUser(int index){
         return usLst.get(index);
     }
-    public void kiirUsers(){
+    public void felhasznalokKilistazasa(){
         int i = 0;
         for (user us : usLst) {
             us.kiir(i);
@@ -64,20 +64,18 @@ public class usercontainer {
         }
     }
 
-    public void jogElfogad(String username){
+    public void specialisRegisztraciokBiralasa(String username,String yesOrNO){
         int i=0;
         for (user object : usLst) {
             if (object.getUser().equals(username)) {
-                usLst.elementAt(i).elfogad();
-            }
-            i++;
-        }
-    }
-    public void jogElutasit(String username){
-        int i=0;
-        for (user object : usLst) {
-            if (object.getUser().equals(username)) {
-                usLst.elementAt(i).elfogad();
+                if (yesOrNO.toLowerCase().equals("y")) {
+                    usLst.elementAt(i).elfogad();
+                    System.out.println("Jelentkezés elfogadva!");
+                }
+                else if (yesOrNO.toLowerCase().equals("n")) {
+                    usLst.remove(object);
+                    System.out.println("Jelentkezés elutasitva!");
+                }
             }
             i++;
         }    }

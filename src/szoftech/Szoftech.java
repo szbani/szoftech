@@ -86,7 +86,7 @@ public class Szoftech {
 
     public void mainMenu() {
         System.out.println("");
-        System.out.println("Fiók: " + user.getNev() + " - " + user.getRangString());
+        System.out.println("Fiók: " + user.getNev() + " - " + user.rang.getRangString());
         if(user.getRang() == 0){
         System.out.println("1 - Események Megtekintése");
         System.out.println("2 - Eseményre jelentkezés");
@@ -194,17 +194,17 @@ public class Szoftech {
                         System.out.println("Már létezik a megadott nevü terem!");
                         teremNev=inp.inputString("Újra a Terem neve: ");    
                     }
-                    termek.addTerem(new terem(teremNev,inp.inputSzam("Férőhely: ")));
+                    termek.teremLetrehozas(new terem(teremNev,inp.inputSzam("Férőhely: ")));
                     break;
                 case 2:
                     //felheasznalok kilistázása
                     System.out.println("");
-                    users.kiirUsers();
+                    users.felhasznalokKilistazasa();
                     break;
                 case 3:
                     //felhasználó törlése
                     System.out.println("");
-                    users.deleteUser(inp.inputString("Felhasználónév: "));
+                    users.felhasznalokTorlese(inp.inputString("Felhasználónév: "));
                     break;
                 case 4:
                     //Speciális regisztráció elfogadása
@@ -212,11 +212,7 @@ public class Szoftech {
                     String id = inp.inputString("Melyik felhasnzálót szeretnéd elfogadni?\n");
                     System.out.println("");
                     System.out.println("Elfogadod a jelentkezését?");
-                    if(inp.inputString("Y/N\n").equalsIgnoreCase("y")){
-                        users.jogElfogad(id);
-                    }else{
-                        users.jogElutasit(id);
-                    }
+                    users.specialisRegisztraciokBiralasa(id, inp.inputString("Y/N\n"));
                     break;
                 default:
                     System.out.println("Rossz számot adtál meg");

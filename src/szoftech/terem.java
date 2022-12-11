@@ -22,7 +22,12 @@ public class terem {
         return nev;
     }
     public void esemenytorol(int id){
-        eslist.remove(id);
+        if (id<eslist.size()) {
+            eslist.remove(id);
+        System.out.println("Az esemény Törlése megtörtént!");
+
+        }
+        else System.out.println("Nem jó ID-t adtál meg (Művelet megszakítása)!");
     }
     
     public void addEsemeny(esemeny es){
