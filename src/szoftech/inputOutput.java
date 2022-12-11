@@ -39,7 +39,7 @@ public class inputOutput {
     public List getFile(String file) {
         List list = new ArrayList<String>();
         try {
-            Scanner sc = new Scanner(new File(file,"utf-8"));
+            Scanner sc = new Scanner(new File(file));
             while (sc.hasNextLine()) {
                 list.add(sc.nextLine());
             }
@@ -58,7 +58,7 @@ public class inputOutput {
     }
     public void writeFile(Vector vec,String file){
         try {
-            PrintWriter pw = new PrintWriter(new File(file,"utf-8"));
+            PrintWriter pw = new PrintWriter(new File(file));
             for (Object obj : vec) {
                 pw.println(obj.toString());
             }
