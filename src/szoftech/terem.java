@@ -66,6 +66,7 @@ public class Terem {
                 }
                 Vector<String> ertekelesek=new Vector<String>();
                 String[] arrert = arr[6].split(",");
+                
                 for (int i = 0; i < arrert.length; i++) {
                     ertekelesek.add(arrert[i]);
                 }
@@ -87,7 +88,6 @@ public class Terem {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
             }                       
         }
         return null;
@@ -131,7 +131,6 @@ public class Terem {
     }
     public boolean esIdLetezik(int ID){
         return this.eslist.size()>ID;
- 
     }
     //foglal�s �tk�z�s�nek leellen?rz�se
     
