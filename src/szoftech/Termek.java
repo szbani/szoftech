@@ -125,19 +125,21 @@ public class Termek {
     }
 
     public void addErtekeles(String teremnev, int esid, String ertekeles) {
+        Terem t = null;
         for (Terem object : trmList) {
             if (object.getNev().equals(teremnev)) {
-                for (Terem e : trmList) {
-                    e.addErtekels(esid-1, ertekeles);
-                }
+                t = object;
+                break;
             }
+        }if(t != null){
+            t.addErtekels(esid-1, ertekeles);
         }
-        mentes();
+
     }
     public boolean esmenyLetezik(String nev,int esID){
         for (Terem object : trmList) {
             if (object.getNev().equals(nev)) {
-                return object.esIdLetezik(esID);
+                return object.esIdLetezik(esID-1);
             }
         }
         return false;

@@ -1,7 +1,3 @@
-fogl fogl hű jenő 1 false
-admin admin Szabó Dániel 2 false
-1 2 3 4 0 false
-2 2 2 2 0 false
-reg1 reg1 reg1 reg1 2 true
-roli roli Pete Roland 0 false
-admin admin Pete Roland 2 true
+felhasz felhasz felhasz felhasz 0 false
+fogl fogl fogl fogl 1 false
+admin admin admin admin 2 false
