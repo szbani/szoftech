@@ -12,6 +12,7 @@ public class TeremFoglaloRendszer {
     Termek termek = new Termek();
 
     public static void main(String[] args) {
+        System.out.println("!!!Kérlek a program futása során ne használj ékezetes betűkjet!!!");
         TeremFoglaloRendszer sz = new TeremFoglaloRendszer();
 
         while (!sz.exit) {

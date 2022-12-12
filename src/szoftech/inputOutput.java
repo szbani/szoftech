@@ -50,7 +50,7 @@ public class inputOutput {
         } catch (FileNotFoundException e) {
             try {
 
-                PrintWriter pw = new PrintWriter(file);
+                PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),StandardCharsets.UTF_8)));
                 pw.close();
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
