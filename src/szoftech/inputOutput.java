@@ -2,6 +2,7 @@
 package szoftech;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class inputOutput {
@@ -9,7 +10,7 @@ public class inputOutput {
     public String inputString(String kiiras) {
         try {
             System.out.print(kiiras);
-            Scanner sc = new Scanner(System.in);
+            Scanner sc = new Scanner(System.in,"utf-8");
             String i = sc.nextLine();
             i=i.replace(",", " ");
             i=i.replace("#", " ");
@@ -23,7 +24,7 @@ public class inputOutput {
     public int inputSzam(String kiiras) {
         try {
             System.out.print(kiiras);
-            Scanner sc = new Scanner(System.in);
+            Scanner sc = new Scanner(System.in,"utf-8");
             int i = sc.nextInt();
             return i;
         }catch(InputMismatchException ex){
@@ -39,7 +40,10 @@ public class inputOutput {
     public List getFile(String file) {
         List list = new ArrayList<String>();
         try {
-            Scanner sc = new Scanner(new File(file));
+          Scanner sc = new Scanner(new File(file),("utf-8"));
+            
+            
+            
             while (sc.hasNextLine()) {
                 list.add(sc.nextLine());
             }
@@ -57,8 +61,11 @@ public class inputOutput {
         return list;
     }
     public void writeFile(Vector vec,String file){
+        
         try {
-            PrintWriter pw = new PrintWriter(new File(file));
+            
+            BufferedWriter writer= new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file),StandardCharsets.UTF_8));
+            PrintWriter pw=new PrintWriter(writer);
             for (Object obj : vec) {
                 pw.println(obj.toString());
             }

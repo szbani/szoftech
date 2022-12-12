@@ -68,7 +68,7 @@ public class Felhasznalo {
     }
     @Override
     public String toString(){        
-        return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev+" "+this.rang+ " " +this.jelentkezett;
+        return this.user+" "+this.pw+" "+this.vezNev+" "+this.kerNev+" "+this.rang.rang+ " " +this.jelentkezett;
     }
     
     
